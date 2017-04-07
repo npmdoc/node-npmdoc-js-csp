@@ -1,0 +1,5194 @@
+<div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a
+
+        href="https://github.com/ubolonton/js-csp#readme"
+
+    >js-csp (v0.9.2)</a>
+</h1>
+<h4>CSP channels with ES6 generators, inspired by Clojurescript's core.async and Go</h4>
+<div class="apidocSectionDiv"><a
+    href="#apidoc.tableOfContents"
+    id="apidoc.tableOfContents"
+><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.js-csp">module js-csp</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.js-csp.alts">
+            function <span class="apidocSignatureSpan">js-csp.</span>alts
+            <span class="apidocSignatureSpan">(operations, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.js-csp.chan">
+            function <span class="apidocSignatureSpan">js-csp.</span>chan
+            <span class="apidocSignatureSpan">(bufferOrNumber, xform, exHandler)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.js-csp.go">
+            function <span class="apidocSignatureSpan">js-csp.</span>go
+            <span class="apidocSignatureSpan">(f)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.js-csp.offer">
+            function <span class="apidocSignatureSpan">js-csp.</span>offer
+            <span class="apidocSignatureSpan">(channel, value)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.js-csp.operations.mix">
+            function <span class="apidocSignatureSpan">js-csp.</span>operations.mix
+            <span class="apidocSignatureSpan">(out)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.js-csp.operations.mult">
+            function <span class="apidocSignatureSpan">js-csp.</span>operations.mult
+            <span class="apidocSignatureSpan">(ch)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.js-csp.operations.pub">
+            function <span class="apidocSignatureSpan">js-csp.</span>operations.pub
+            <span class="apidocSignatureSpan">(ch, topicFn)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.js-csp.poll">
+            function <span class="apidocSignatureSpan">js-csp.</span>poll
+            <span class="apidocSignatureSpan">(channel)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.js-csp.promiseChan">
+            function <span class="apidocSignatureSpan">js-csp.</span>promiseChan
+            <span class="apidocSignatureSpan">(xform, exHandler)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.js-csp.put">
+            function <span class="apidocSignatureSpan">js-csp.</span>put
+            <span class="apidocSignatureSpan">(channel, value)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.js-csp.putAsync">
+            function <span class="apidocSignatureSpan">js-csp.</span>putAsync
+            <span class="apidocSignatureSpan">(channel, value, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.js-csp.sleep">
+            function <span class="apidocSignatureSpan">js-csp.</span>sleep
+            <span class="apidocSignatureSpan">(msecs)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.js-csp.spawn">
+            function <span class="apidocSignatureSpan">js-csp.</span>spawn
+            <span class="apidocSignatureSpan">(gen)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.js-csp.take">
+            function <span class="apidocSignatureSpan">js-csp.</span>take
+            <span class="apidocSignatureSpan">(channel)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.js-csp.takeAsync">
+            function <span class="apidocSignatureSpan">js-csp.</span>takeAsync
+            <span class="apidocSignatureSpan">(channel, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.js-csp.timeout">
+            function <span class="apidocSignatureSpan">js-csp.</span>timeout
+            <span class="apidocSignatureSpan">(msecs)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">js-csp.</span>CLOSED</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">js-csp.</span>DEFAULT</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">js-csp.</span>buffers</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">js-csp.</span>csp_core</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">js-csp.</span>csp_operations</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">js-csp.</span>operations</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">js-csp.</span>NO_VALUE</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.js-csp.DEFAULT">module js-csp.DEFAULT</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.js-csp.DEFAULT.toString">
+            function <span class="apidocSignatureSpan">js-csp.DEFAULT.</span>toString
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.js-csp.buffers">module js-csp.buffers</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.js-csp.buffers.dropping">
+            function <span class="apidocSignatureSpan">js-csp.buffers.</span>dropping
+            <span class="apidocSignatureSpan">(n)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.js-csp.buffers.fixed">
+            function <span class="apidocSignatureSpan">js-csp.buffers.</span>fixed
+            <span class="apidocSignatureSpan">(n)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.js-csp.buffers.promise">
+            function <span class="apidocSignatureSpan">js-csp.buffers.</span>promise
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.js-csp.buffers.sliding">
+            function <span class="apidocSignatureSpan">js-csp.buffers.</span>sliding
+            <span class="apidocSignatureSpan">(n)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.js-csp.csp_core">module js-csp.csp_core</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.js-csp.csp_core.chan">
+            function <span class="apidocSignatureSpan">js-csp.csp_core.</span>chan
+            <span class="apidocSignatureSpan">(bufferOrNumber, xform, exHandler)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.js-csp.csp_core.go">
+            function <span class="apidocSignatureSpan">js-csp.csp_core.</span>go
+            <span class="apidocSignatureSpan">(f)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.js-csp.csp_core.promiseChan">
+            function <span class="apidocSignatureSpan">js-csp.csp_core.</span>promiseChan
+            <span class="apidocSignatureSpan">(xform, exHandler)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.js-csp.csp_core.spawn">
+            function <span class="apidocSignatureSpan">js-csp.csp_core.</span>spawn
+            <span class="apidocSignatureSpan">(gen)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.js-csp.csp_operations">module js-csp.csp_operations</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.js-csp.csp_operations.filterFrom">
+            function <span class="apidocSignatureSpan">js-csp.csp_operations.</span>filterFrom
+            <span class="apidocSignatureSpan">(p, ch, bufferOrN)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.js-csp.csp_operations.filterInto">
+            function <span class="apidocSignatureSpan">js-csp.csp_operations.</span>filterInto
+            <span class="apidocSignatureSpan">(p, ch)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.js-csp.csp_operations.fromColl">
+            function <span class="apidocSignatureSpan">js-csp.csp_operations.</span>fromColl
+            <span class="apidocSignatureSpan">(coll)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.js-csp.csp_operations.into">
+            function <span class="apidocSignatureSpan">js-csp.csp_operations.</span>into
+            <span class="apidocSignatureSpan">(coll, ch)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.js-csp.csp_operations.map">
+            function <span class="apidocSignatureSpan">js-csp.csp_operations.</span>map
+            <span class="apidocSignatureSpan">(f, chs, bufferOrN)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.js-csp.csp_operations.mapFrom">
+            function <span class="apidocSignatureSpan">js-csp.csp_operations.</span>mapFrom
+            <span class="apidocSignatureSpan">(f, ch)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.js-csp.csp_operations.mapInto">
+            function <span class="apidocSignatureSpan">js-csp.csp_operations.</span>mapInto
+            <span class="apidocSignatureSpan">(f, ch)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.js-csp.csp_operations.mapcatFrom">
+            function <span class="apidocSignatureSpan">js-csp.csp_operations.</span>mapcatFrom
+            <span class="apidocSignatureSpan">(f, ch, bufferOrN)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.js-csp.csp_operations.mapcatInto">
+            function <span class="apidocSignatureSpan">js-csp.csp_operations.</span>mapcatInto
+            <span class="apidocSignatureSpan">(f, ch, bufferOrN)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.js-csp.csp_operations.merge">
+            function <span class="apidocSignatureSpan">js-csp.csp_operations.</span>merge
+            <span class="apidocSignatureSpan">(chs, bufferOrN)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.js-csp.csp_operations.mix">
+            function <span class="apidocSignatureSpan">js-csp.csp_operations.</span>mix
+            <span class="apidocSignatureSpan">(out)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.js-csp.csp_operations.mult">
+            function <span class="apidocSignatureSpan">js-csp.csp_operations.</span>mult
+            <span class="apidocSignatureSpan">(ch)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.js-csp.csp_operations.onto">
+            function <span class="apidocSignatureSpan">js-csp.csp_operations.</span>onto
+            <span class="apidocSignatureSpan">(ch, coll, keepOpen)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.js-csp.csp_operations.partition">
+            function <span class="apidocSignatureSpan">js-csp.csp_operations.</span>partition
+            <span class="apidocSignatureSpan">(n, ch, bufferOrN)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.js-csp.csp_operations.partitionBy">
+            function <span class="apidocSignatureSpan">js-csp.csp_operations.</span>partitionBy
+            <span class="apidocSignatureSpan">(f, ch, bufferOrN)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.js-csp.csp_operations.pipe">
+            function <span class="apidocSignatureSpan">js-csp.csp_operations.</span>pipe
+            <span class="apidocSignatureSpan">(src, dst, keepOpen)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.js-csp.csp_operations.pipeline">
+            function <span class="apidocSignatureSpan">js-csp.csp_operations.</span>pipeline
+            <span class="apidocSignatureSpan">(to, xf, from, keepOpen, exHandler)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.js-csp.csp_operations.pipelineAsync">
+            function <span class="apidocSignatureSpan">js-csp.csp_operations.</span>pipelineAsync
+            <span class="apidocSignatureSpan">(n, to, af, from, keepOpen)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.js-csp.csp_operations.pub">
+            function <span class="apidocSignatureSpan">js-csp.csp_operations.</span>pub
+            <span class="apidocSignatureSpan">(ch, topicFn)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.js-csp.csp_operations.reduce">
+            function <span class="apidocSignatureSpan">js-csp.csp_operations.</span>reduce
+            <span class="apidocSignatureSpan">(f, init, ch)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.js-csp.csp_operations.removeFrom">
+            function <span class="apidocSignatureSpan">js-csp.csp_operations.</span>removeFrom
+            <span class="apidocSignatureSpan">(p, ch)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.js-csp.csp_operations.removeInto">
+            function <span class="apidocSignatureSpan">js-csp.csp_operations.</span>removeInto
+            <span class="apidocSignatureSpan">(p, ch)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.js-csp.csp_operations.split">
+            function <span class="apidocSignatureSpan">js-csp.csp_operations.</span>split
+            <span class="apidocSignatureSpan">(p, ch, trueBufferOrN, falseBufferOrN)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.js-csp.csp_operations.take">
+            function <span class="apidocSignatureSpan">js-csp.csp_operations.</span>take
+            <span class="apidocSignatureSpan">(n, ch, bufferOrN)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.js-csp.csp_operations.unique">
+            function <span class="apidocSignatureSpan">js-csp.csp_operations.</span>unique
+            <span class="apidocSignatureSpan">(ch, bufferOrN)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.js-csp.operations">module js-csp.operations</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.js-csp.operations.filterFrom">
+            function <span class="apidocSignatureSpan">js-csp.operations.</span>filterFrom
+            <span class="apidocSignatureSpan">(p, ch, bufferOrN)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.js-csp.operations.filterInto">
+            function <span class="apidocSignatureSpan">js-csp.operations.</span>filterInto
+            <span class="apidocSignatureSpan">(p, ch)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.js-csp.operations.fromColl">
+            function <span class="apidocSignatureSpan">js-csp.operations.</span>fromColl
+            <span class="apidocSignatureSpan">(coll)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.js-csp.operations.into">
+            function <span class="apidocSignatureSpan">js-csp.operations.</span>into
+            <span class="apidocSignatureSpan">(coll, ch)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.js-csp.operations.map">
+            function <span class="apidocSignatureSpan">js-csp.operations.</span>map
+            <span class="apidocSignatureSpan">(f, chs, bufferOrN)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.js-csp.operations.mapFrom">
+            function <span class="apidocSignatureSpan">js-csp.operations.</span>mapFrom
+            <span class="apidocSignatureSpan">(f, ch)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.js-csp.operations.mapInto">
+            function <span class="apidocSignatureSpan">js-csp.operations.</span>mapInto
+            <span class="apidocSignatureSpan">(f, ch)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.js-csp.operations.mapcatFrom">
+            function <span class="apidocSignatureSpan">js-csp.operations.</span>mapcatFrom
+            <span class="apidocSignatureSpan">(f, ch, bufferOrN)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.js-csp.operations.mapcatInto">
+            function <span class="apidocSignatureSpan">js-csp.operations.</span>mapcatInto
+            <span class="apidocSignatureSpan">(f, ch, bufferOrN)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.js-csp.operations.merge">
+            function <span class="apidocSignatureSpan">js-csp.operations.</span>merge
+            <span class="apidocSignatureSpan">(chs, bufferOrN)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.js-csp.operations.mix">
+            function <span class="apidocSignatureSpan">js-csp.operations.</span>mix
+            <span class="apidocSignatureSpan">(out)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.js-csp.operations.mult">
+            function <span class="apidocSignatureSpan">js-csp.operations.</span>mult
+            <span class="apidocSignatureSpan">(ch)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.js-csp.operations.onto">
+            function <span class="apidocSignatureSpan">js-csp.operations.</span>onto
+            <span class="apidocSignatureSpan">(ch, coll, keepOpen)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.js-csp.operations.partition">
+            function <span class="apidocSignatureSpan">js-csp.operations.</span>partition
+            <span class="apidocSignatureSpan">(n, ch, bufferOrN)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.js-csp.operations.partitionBy">
+            function <span class="apidocSignatureSpan">js-csp.operations.</span>partitionBy
+            <span class="apidocSignatureSpan">(f, ch, bufferOrN)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.js-csp.operations.pipe">
+            function <span class="apidocSignatureSpan">js-csp.operations.</span>pipe
+            <span class="apidocSignatureSpan">(src, dst, keepOpen)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.js-csp.operations.pipeline">
+            function <span class="apidocSignatureSpan">js-csp.operations.</span>pipeline
+            <span class="apidocSignatureSpan">(to, xf, from, keepOpen, exHandler)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.js-csp.operations.pipelineAsync">
+            function <span class="apidocSignatureSpan">js-csp.operations.</span>pipelineAsync
+            <span class="apidocSignatureSpan">(n, to, af, from, keepOpen)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.js-csp.operations.pub">
+            function <span class="apidocSignatureSpan">js-csp.operations.</span>pub
+            <span class="apidocSignatureSpan">(ch, topicFn)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.js-csp.operations.reduce">
+            function <span class="apidocSignatureSpan">js-csp.operations.</span>reduce
+            <span class="apidocSignatureSpan">(f, init, ch)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.js-csp.operations.removeFrom">
+            function <span class="apidocSignatureSpan">js-csp.operations.</span>removeFrom
+            <span class="apidocSignatureSpan">(p, ch)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.js-csp.operations.removeInto">
+            function <span class="apidocSignatureSpan">js-csp.operations.</span>removeInto
+            <span class="apidocSignatureSpan">(p, ch)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.js-csp.operations.split">
+            function <span class="apidocSignatureSpan">js-csp.operations.</span>split
+            <span class="apidocSignatureSpan">(p, ch, trueBufferOrN, falseBufferOrN)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.js-csp.operations.take">
+            function <span class="apidocSignatureSpan">js-csp.operations.</span>take
+            <span class="apidocSignatureSpan">(n, ch, bufferOrN)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.js-csp.operations.unique">
+            function <span class="apidocSignatureSpan">js-csp.operations.</span>unique
+            <span class="apidocSignatureSpan">(ch, bufferOrN)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.js-csp.operations.mix">module js-csp.operations.mix</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.js-csp.operations.mix.mix">
+            function <span class="apidocSignatureSpan">js-csp.operations.</span>mix
+            <span class="apidocSignatureSpan">(out)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.js-csp.operations.mix.add">
+            function <span class="apidocSignatureSpan">js-csp.operations.mix.</span>add
+            <span class="apidocSignatureSpan">(m, ch)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.js-csp.operations.mix.remove">
+            function <span class="apidocSignatureSpan">js-csp.operations.mix.</span>remove
+            <span class="apidocSignatureSpan">(m, ch)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.js-csp.operations.mix.removeAll">
+            function <span class="apidocSignatureSpan">js-csp.operations.mix.</span>removeAll
+            <span class="apidocSignatureSpan">(m)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.js-csp.operations.mix.setSoloMode">
+            function <span class="apidocSignatureSpan">js-csp.operations.mix.</span>setSoloMode
+            <span class="apidocSignatureSpan">(m, mode)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.js-csp.operations.mix.toggle">
+            function <span class="apidocSignatureSpan">js-csp.operations.mix.</span>toggle
+            <span class="apidocSignatureSpan">(m, updateStateList)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.js-csp.operations.mult">module js-csp.operations.mult</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.js-csp.operations.mult.mult">
+            function <span class="apidocSignatureSpan">js-csp.operations.</span>mult
+            <span class="apidocSignatureSpan">(ch)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.js-csp.operations.mult.tap">
+            function <span class="apidocSignatureSpan">js-csp.operations.mult.</span>tap
+            <span class="apidocSignatureSpan">(m, ch, keepOpen)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.js-csp.operations.mult.untap">
+            function <span class="apidocSignatureSpan">js-csp.operations.mult.</span>untap
+            <span class="apidocSignatureSpan">(m, ch)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.js-csp.operations.mult.untapAll">
+            function <span class="apidocSignatureSpan">js-csp.operations.mult.</span>untapAll
+            <span class="apidocSignatureSpan">(m)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.js-csp.operations.pub">module js-csp.operations.pub</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.js-csp.operations.pub.pub">
+            function <span class="apidocSignatureSpan">js-csp.operations.</span>pub
+            <span class="apidocSignatureSpan">(ch, topicFn)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.js-csp.operations.pub.sub">
+            function <span class="apidocSignatureSpan">js-csp.operations.pub.</span>sub
+            <span class="apidocSignatureSpan">(p, topic, ch, keepOpen)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.js-csp.operations.pub.unsub">
+            function <span class="apidocSignatureSpan">js-csp.operations.pub.</span>unsub
+            <span class="apidocSignatureSpan">(p, topic, ch)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.js-csp.operations.pub.unsubAll">
+            function <span class="apidocSignatureSpan">js-csp.operations.pub.</span>unsubAll
+            <span class="apidocSignatureSpan">(p, topic)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.js-csp" id="apidoc.module.js-csp">module js-csp</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.js-csp.alts" id="apidoc.element.js-csp.alts">
+        function <span class="apidocSignatureSpan">js-csp.</span>alts
+        <span class="apidocSignatureSpan">(operations, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function alts(operations, options) {
+  return new _instruction.AltsInstruction(operations, options);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.js-csp.chan" id="apidoc.element.js-csp.chan">
+        function <span class="apidocSignatureSpan">js-csp.</span>chan
+        <span class="apidocSignatureSpan">(bufferOrNumber, xform, exHandler)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function chan(bufferOrNumber, xform, exHandler) {
+  if (typeof bufferOrNumber === &#x27;number&#x27;) {
+    return (0, _channels.chan)(bufferOrNumber === 0 ? null : (0, _buffers.fixed)(bufferOrNumber), xform, exHandler);
+  }
+
+  return (0, _channels.chan)(bufferOrNumber, xform, exHandler);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+  yield csp.timeout(100);
+  yield csp.put(table, ball);
+}
+}
+
+csp.go(function* () {
+const table = csp.<span class="apidocCodeKeywordSpan">chan</span>();
+
+csp.go(player, [&#x22;ping&#x22;, table]);
+csp.go(player, [&#x22;pong&#x22;, table]);
+
+yield csp.put(table, {hits: 0});
+yield csp.timeout(1000);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.js-csp.go" id="apidoc.element.js-csp.go">
+        function <span class="apidocSignatureSpan">js-csp.</span>go
+        <span class="apidocSignatureSpan">(f)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function go(f) {
+  var args = arguments.length &#x3e; 1 &#x26;&#x26; arguments[1] !== undefined ? arguments[1] : [];
+
+  return spawn(f.apply(undefined, (0, _toConsumableArray3.default)(args)));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  console.log(`${name} ${ball.hits}`);
+
+  yield csp.timeout(100);
+  yield csp.put(table, ball);
+}
+}
+
+csp.<span class="apidocCodeKeywordSpan">go</span>(function* () {
+const table = csp.chan();
+
+csp.go(player, [&#x22;ping&#x22;, table]);
+csp.go(player, [&#x22;pong&#x22;, table]);
+
+yield csp.put(table, {hits: 0});
+yield csp.timeout(1000);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.js-csp.offer" id="apidoc.element.js-csp.offer">
+        function <span class="apidocSignatureSpan">js-csp.</span>offer
+        <span class="apidocSignatureSpan">(channel, value)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function offer(channel, value) {
+  if (channel.closed) {
+    return false;
+  }
+
+  var result = channel.put(value, new _handlers.FnHandler(false));
+
+  return result instanceof _boxes.Box;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.js-csp.operations.mix" id="apidoc.element.js-csp.operations.mix">
+        function <span class="apidocSignatureSpan">js-csp.</span>operations.mix
+        <span class="apidocSignatureSpan">(out)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function mix(out) {
+  var m = new Mix(out);
+  (0, _csp.go)(_regenerator2.default.mark(function _callee13() {
+    var state, result, _value, channel, solos, stillOpen;
+
+    return _regenerator2.default.wrap(function _callee13$(_context15) {
+      while (1) {
+        switch (_context15.prev = _context15.next) {
+          case 0:
+            state = m._getAllState();
+
+          case 1:
+            _context15.next = 3;
+            return (0, _process.alts)(state.reads);
+
+          case 3:
+            result = _context15.sent;
+            _value = result.value;
+            channel = result.channel;
+
+            if (!(_value === _channels.CLOSED)) {
+              _context15.next = 11;
+              break;
+            }
+
+            delete m.stateMap[chanId(channel)];
+            state = m._getAllState();
+            _context15.next = 22;
+            break;
+
+          case 11:
+            if (!(channel === m.change)) {
+              _context15.next = 15;
+              break;
+            }
+
+            state = m._getAllState();
+            _context15.next = 22;
+            break;
+
+          case 15:
+            solos = state.solos;
+
+            if (!(solos.indexOf(channel) &#x3e; -1 || solos.length === 0 &#x26;&#x26; !(state.mutes.indexOf(channel) &#x3e; -1))) {
+              _context15.next = 22;
+              break;
+            }
+
+            _context15.next = 19;
+            return (0, _process.put)(out, _value);
+
+          case 19:
+            stillOpen = _context15.sent;
+
+            if (stillOpen) {
+              _context15.next = 22;
+              break;
+            }
+
+            return _context15.abrupt(&#x27;break&#x27;, 24);
+
+          case 22:
+            _context15.next = 1;
+            break;
+
+          case 24:
+          case &#x27;end&#x27;:
+            return _context15.stop();
+        }
+      }
+    }, _callee13, this);
+  }));
+  return m;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.js-csp.operations.mult" id="apidoc.element.js-csp.operations.mult">
+        function <span class="apidocSignatureSpan">js-csp.</span>operations.mult
+        <span class="apidocSignatureSpan">(ch)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function mult(ch) {
+  var m = new Mult(ch);
+  var dchan = (0, _csp.chan)(1);
+  var dcount = void 0;
+
+  function makeDoneCallback(tap) {
+    return function (stillOpen) {
+      dcount -= 1;
+      if (dcount === 0) {
+        (0, _process.putThenCallback)(dchan, true);
+      }
+      if (!stillOpen) {
+        m.untap(tap.channel);
+      }
+    };
+  }
+
+  (0, _csp.go)(_regenerator2.default.mark(function _callee12() {
+    var _this = this;
+
+    var _loop, _ret;
+
+    return _regenerator2.default.wrap(function _callee12$(_context14) {
+      while (1) {
+        switch (_context14.prev = _context14.next) {
+          case 0:
+            _loop = _regenerator2.default.mark(function _loop() {
+              var value, taps, t, initDcount;
+              return _regenerator2.default.wrap(function _loop$(_context13) {
+                while (1) {
+                  switch (_context13.prev = _context13.next) {
+                    case 0:
+                      _context13.next = 2;
+                      return (0, _process.take)(ch);
+
+                    case 2:
+                      value = _context13.sent;
+                      taps = m.taps;
+                      t = void 0;
+
+                      if (!(value === _channels.CLOSED)) {
+                        _context13.next = 9;
+                        break;
+                      }
+
+                      (0, _keys2.default)(taps).forEach(function (id) {
+                        t = taps[id];
+                        if (!t.keepOpen) {
+                          t.channel.close();
+                        }
+                      });
+
+                      // TODO: Is this necessary?
+                      m.untapAll();
+                      return _context13.abrupt(&#x27;return&#x27;, &#x27;break&#x27;);
+
+                    case 9:
+                      dcount = (0, _keys2.default)(taps).length;
+                      // XXX: This is because putAsync can actually call back
+                      // immediately. Fix that
+                      initDcount = dcount;
+                      // Put value on tapping channels...
+
+                      (0, _keys2.default)(taps).forEach(function (id) {
+                        t = taps[id];
+                        (0, _process.putThenCallback)(t.channel, value, makeDoneCallback(t));
+                      });
+                      // ... waiting for all puts to complete
+
+                      if (!(initDcount &#x3e; 0)) {
+                        _context13.next = 15;
+                        break;
+                      }
+
+                      _context13.next = 15;
+                      return (0, _process.take)(dchan);
+
+                    case 15:
+                    case &#x27;end&#x27;:
+                      return _context13.stop();
+                  }
+                }
+              }, _loop, _this);
+            });
+
+          case 1:
+            return _context14.delegateYield(_loop(), &#x27;t0&#x27;, 2);
+
+          case 2:
+            _ret = _context14.t0;
+
+            if (!(_ret === &#x27;break&#x27;)) {
+              _context14.next = 5;
+              break;
+            }
+
+            return _context14.abrupt(&#x27;break&#x27;, 7);
+
+          case 5:
+            _context14.next = 1;
+            break;
+
+          case 7:
+          case &#x27;end&#x27;:
+            return _context14.stop();
+        }
+      }
+    }, _callee12, this);
+  }));
+  return m;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.js-csp.operations.pub" id="apidoc.element.js-csp.operations.pub">
+        function <span class="apidocSignatureSpan">js-csp.</span>operations.pub
+        <span class="apidocSignatureSpan">(ch, topicFn)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function pub(ch, topicFn) {
+  var bufferFn = arguments.length &#x3e; 2 &#x26;&#x26; arguments[2] !== undefined ? arguments[2] : constantlyNull;
+
+  var p = new Pub(ch, topicFn, bufferFn);
+  (0, _csp.go)(_regenerator2.default.mark(function _callee14() {
+    var _this3 = this;
+
+    var _loop3, _ret3;
+
+    return _regenerator2.default.wrap(function _callee14$(_context17) {
+      while (1) {
+        switch (_context17.prev = _context17.next) {
+          case 0:
+            _loop3 = _regenerator2.default.mark(function _loop3() {
+              var value, mults, topic, m, stillOpen;
+              return _regenerator2.default.wrap(function _loop3$(_context16) {
+                while (1) {
+                  switch (_context16.prev = _context16.next) {
+                    case 0:
+                      _context16.next = 2;
+                      return (0, _process.take)(ch);
+
+                    case 2:
+                      value = _context16.sent;
+                      mults = p.mults;
+
+                      if (!(value === _channels.CLOSED)) {
+                        _context16.next = 7;
+                        break;
+                      }
+
+                      (0, _keys2.default)(mults).forEach(function (topic) {
+                        mults[topic].muxch().close();
+                      });
+                      return _context16.abrupt(&#x27;return&#x27;, &#x27;break&#x27;);
+
+                    case 7:
+                      // TODO: Somehow ensure/document that this must return a string
+                      // (otherwise use proper (hash)maps)
+                      topic = topicFn(value);
+                      m = mults[topic];
+
+                      if (!m) {
+                        _context16.next = 14;
+                        break;
+                      }
+
+                      _context16.next = 12;
+                      return (0, _process.put)(m.muxch(), value);
+
+                    case 12:
+                      stillOpen = _context16.sent;
+
+                      if (!stillOpen) {
+                        delete mults[topic];
+                      }
+
+                    case 14:
+                    case &#x27;end&#x27;:
+                      return _context16.stop();
+                  }
+                }
+              }, _loop3, _this3);
+            });
+
+          case 1:
+            return _context17.delegateYield(_loop3(), &#x27;t0&#x27;, 2);
+
+          case 2:
+            _ret3 = _context17.t0;
+
+            if (!(_ret3 === &#x27;break&#x27;)) {
+              _context17.next = 5;
+              break;
+            }
+
+            return _context17.abrupt(&#x27;break&#x27;, 7);
+
+          case 5:
+            _context17.next = 1;
+            break;
+
+          case 7:
+          case &#x27;end&#x27;:
+            return _context17.stop();
+        }
+      }
+    }, _callee14, this);
+  }));
+  return p;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.js-csp.poll" id="apidoc.element.js-csp.poll">
+        function <span class="apidocSignatureSpan">js-csp.</span>poll
+        <span class="apidocSignatureSpan">(channel)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function poll(channel) {
+  if (channel.closed) {
+    return NO_VALUE;
+  }
+
+  var result = channel.take(new _handlers.FnHandler(false));
+
+  return result ? result.value : NO_VALUE;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.js-csp.promiseChan" id="apidoc.element.js-csp.promiseChan">
+        function <span class="apidocSignatureSpan">js-csp.</span>promiseChan
+        <span class="apidocSignatureSpan">(xform, exHandler)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function promiseChan(xform, exHandler) {
+  return (0, _channels.chan)((0, _buffers.promise)(), xform, exHandler);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.js-csp.put" id="apidoc.element.js-csp.put">
+        function <span class="apidocSignatureSpan">js-csp.</span>put
+        <span class="apidocSignatureSpan">(channel, value)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function put(channel, value) {
+  return new _instruction.PutInstruction(channel, value);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    return;
+  }
+
+  ball.hits += 1;
+  console.log(`${name} ${ball.hits}`);
+
+  yield csp.timeout(100);
+  yield csp.<span class="apidocCodeKeywordSpan">put</span>(table, ball);
+}
+}
+
+csp.go(function* () {
+const table = csp.chan();
+
+csp.go(player, [&#x22;ping&#x22;, table]);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.js-csp.putAsync" id="apidoc.element.js-csp.putAsync">
+        function <span class="apidocSignatureSpan">js-csp.</span>putAsync
+        <span class="apidocSignatureSpan">(channel, value, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function putThenCallback(channel, value, callback) {
+  var result = channel.put(value, new _handlers.FnHandler(true, callback));
+
+  if (result &#x26;&#x26; callback) {
+    callback(result.value);
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.js-csp.sleep" id="apidoc.element.js-csp.sleep">
+        function <span class="apidocSignatureSpan">js-csp.</span>sleep
+        <span class="apidocSignatureSpan">(msecs)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function sleep(msecs) {
+  return new _instruction.SleepInstruction(msecs);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.js-csp.spawn" id="apidoc.element.js-csp.spawn">
+        function <span class="apidocSignatureSpan">js-csp.</span>spawn
+        <span class="apidocSignatureSpan">(gen)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function spawn(gen) {
+  var ch = (0, _channels.chan)((0, _buffers.fixed)(1));
+  var process = new _process.Process(gen, function (value) {
+    if (value === _channels.CLOSED) {
+      ch.close();
+    } else {
+      (0, _process.putThenCallback)(ch, value, function () {
+        return ch.close();
+      });
+    }
+  });
+
+  process.run();
+  return ch;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.js-csp.take" id="apidoc.element.js-csp.take">
+        function <span class="apidocSignatureSpan">js-csp.</span>take
+        <span class="apidocSignatureSpan">(channel)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function take(channel) {
+  return new _instruction.TakeInstruction(channel);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+```
+
+Pingpong (ported from [Go](http://talks.golang.org/2013/advconc.slide#6)).
+
+```javascript
+function* player(name, table) {
+  while (true) {
+let ball = yield csp.<span class="apidocCodeKeywordSpan">take</span>(table);
+
+if (ball === csp.CLOSED) {
+  console.log(name + &#x22;: table&#x27;s gone&#x22;);
+  return;
+}
+
+ball.hits += 1;
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.js-csp.takeAsync" id="apidoc.element.js-csp.takeAsync">
+        function <span class="apidocSignatureSpan">js-csp.</span>takeAsync
+        <span class="apidocSignatureSpan">(channel, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function takeThenCallback(channel, callback) {
+  var result = channel.take(new _handlers.FnHandler(true, callback));
+
+  if (result &#x26;&#x26; callback) {
+    callback(result.value);
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.js-csp.timeout" id="apidoc.element.js-csp.timeout">
+        function <span class="apidocSignatureSpan">js-csp.</span>timeout
+        <span class="apidocSignatureSpan">(msecs)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function timeout(msecs) {
+  // eslint-disable-line
+  var ch = (0, _channels.chan)();
+
+  (0, _dispatch.queueDelay)(function () {
+    return ch.close();
+  }, msecs);
+
+  return ch;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    console.log(name + &#x22;: table&#x27;s gone&#x22;);
+    return;
+  }
+
+  ball.hits += 1;
+  console.log(`${name} ${ball.hits}`);
+
+  yield csp.<span class="apidocCodeKeywordSpan">timeout</span>(100);
+  yield csp.put(table, ball);
+}
+}
+
+csp.go(function* () {
+const table = csp.chan();
+...</pre></li>
+    </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.js-csp.DEFAULT" id="apidoc.module.js-csp.DEFAULT">module js-csp.DEFAULT</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.js-csp.DEFAULT.toString" id="apidoc.element.js-csp.DEFAULT.toString">
+        function <span class="apidocSignatureSpan">js-csp.DEFAULT.</span>toString
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function toString() {
+  return &#x27;[object DEFAULT]&#x27;;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.js-csp.buffers" id="apidoc.module.js-csp.buffers">module js-csp.buffers</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.js-csp.buffers.dropping" id="apidoc.element.js-csp.buffers.dropping">
+        function <span class="apidocSignatureSpan">js-csp.buffers.</span>dropping
+        <span class="apidocSignatureSpan">(n)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function dropping(n) {
+  return new DroppingBuffer(ring(n), n);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.js-csp.buffers.fixed" id="apidoc.element.js-csp.buffers.fixed">
+        function <span class="apidocSignatureSpan">js-csp.buffers.</span>fixed
+        <span class="apidocSignatureSpan">(n)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function fixed(n) {
+  return new FixedBuffer(ring(n), n);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.js-csp.buffers.promise" id="apidoc.element.js-csp.buffers.promise">
+        function <span class="apidocSignatureSpan">js-csp.buffers.</span>promise
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function promise() {
+  return new PromiseBuffer(PromiseBuffer.NO_VALUE);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.js-csp.buffers.sliding" id="apidoc.element.js-csp.buffers.sliding">
+        function <span class="apidocSignatureSpan">js-csp.buffers.</span>sliding
+        <span class="apidocSignatureSpan">(n)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function sliding(n) {
+  return new SlidingBuffer(ring(n), n);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.js-csp.csp_core" id="apidoc.module.js-csp.csp_core">module js-csp.csp_core</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.js-csp.csp_core.chan" id="apidoc.element.js-csp.csp_core.chan">
+        function <span class="apidocSignatureSpan">js-csp.csp_core.</span>chan
+        <span class="apidocSignatureSpan">(bufferOrNumber, xform, exHandler)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function chan(bufferOrNumber, xform, exHandler) {
+  if (typeof bufferOrNumber === &#x27;number&#x27;) {
+    return (0, _channels.chan)(bufferOrNumber === 0 ? null : (0, _buffers.fixed)(bufferOrNumber), xform, exHandler);
+  }
+
+  return (0, _channels.chan)(bufferOrNumber, xform, exHandler);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+  yield csp.timeout(100);
+  yield csp.put(table, ball);
+}
+}
+
+csp.go(function* () {
+const table = csp.<span class="apidocCodeKeywordSpan">chan</span>();
+
+csp.go(player, [&#x22;ping&#x22;, table]);
+csp.go(player, [&#x22;pong&#x22;, table]);
+
+yield csp.put(table, {hits: 0});
+yield csp.timeout(1000);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.js-csp.csp_core.go" id="apidoc.element.js-csp.csp_core.go">
+        function <span class="apidocSignatureSpan">js-csp.csp_core.</span>go
+        <span class="apidocSignatureSpan">(f)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function go(f) {
+  var args = arguments.length &#x3e; 1 &#x26;&#x26; arguments[1] !== undefined ? arguments[1] : [];
+
+  return spawn(f.apply(undefined, (0, _toConsumableArray3.default)(args)));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  console.log(`${name} ${ball.hits}`);
+
+  yield csp.timeout(100);
+  yield csp.put(table, ball);
+}
+}
+
+csp.<span class="apidocCodeKeywordSpan">go</span>(function* () {
+const table = csp.chan();
+
+csp.go(player, [&#x22;ping&#x22;, table]);
+csp.go(player, [&#x22;pong&#x22;, table]);
+
+yield csp.put(table, {hits: 0});
+yield csp.timeout(1000);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.js-csp.csp_core.promiseChan" id="apidoc.element.js-csp.csp_core.promiseChan">
+        function <span class="apidocSignatureSpan">js-csp.csp_core.</span>promiseChan
+        <span class="apidocSignatureSpan">(xform, exHandler)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function promiseChan(xform, exHandler) {
+  return (0, _channels.chan)((0, _buffers.promise)(), xform, exHandler);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.js-csp.csp_core.spawn" id="apidoc.element.js-csp.csp_core.spawn">
+        function <span class="apidocSignatureSpan">js-csp.csp_core.</span>spawn
+        <span class="apidocSignatureSpan">(gen)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function spawn(gen) {
+  var ch = (0, _channels.chan)((0, _buffers.fixed)(1));
+  var process = new _process.Process(gen, function (value) {
+    if (value === _channels.CLOSED) {
+      ch.close();
+    } else {
+      (0, _process.putThenCallback)(ch, value, function () {
+        return ch.close();
+      });
+    }
+  });
+
+  process.run();
+  return ch;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.js-csp.csp_operations" id="apidoc.module.js-csp.csp_operations">module js-csp.csp_operations</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.js-csp.csp_operations.filterFrom" id="apidoc.element.js-csp.csp_operations.filterFrom">
+        function <span class="apidocSignatureSpan">js-csp.csp_operations.</span>filterFrom
+        <span class="apidocSignatureSpan">(p, ch, bufferOrN)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function filterFrom(p, ch, bufferOrN) {
+  var out = (0, _csp.chan)(bufferOrN);
+
+  (0, _csp.go)(_regenerator2.default.mark(function _callee() {
+    var value;
+    return _regenerator2.default.wrap(function _callee$(_context) {
+      while (1) {
+        switch (_context.prev = _context.next) {
+          case 0:
+            _context.next = 2;
+            return (0, _process.take)(ch);
+
+          case 2:
+            value = _context.sent;
+
+            if (!(value === _channels.CLOSED)) {
+              _context.next = 6;
+              break;
+            }
+
+            out.close();
+            return _context.abrupt(&#x27;break&#x27;, 11);
+
+          case 6:
+            if (!p(value)) {
+              _context.next = 9;
+              break;
+            }
+
+            _context.next = 9;
+            return (0, _process.put)(out, value);
+
+          case 9:
+            _context.next = 0;
+            break;
+
+          case 11:
+          case &#x27;end&#x27;:
+            return _context.stop();
+        }
+      }
+    }, _callee, this);
+  }));
+  return out;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.js-csp.csp_operations.filterInto" id="apidoc.element.js-csp.csp_operations.filterInto">
+        function <span class="apidocSignatureSpan">js-csp.csp_operations.</span>filterInto
+        <span class="apidocSignatureSpan">(p, ch)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function filterInto(p, ch) {
+  return {
+    isClosed: function isClosed() {
+      return ch.isClosed();
+    },
+    close: function close() {
+      ch.close();
+    },
+    put: function put(value, handler) {
+      if (p(value)) {
+        return ch.put(value, handler);
+      }
+
+      return new _boxes.Box(!ch.isClosed());
+    },
+    take: function take(handler) {
+      return ch.take(handler);
+    }
+  };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.js-csp.csp_operations.fromColl" id="apidoc.element.js-csp.csp_operations.fromColl">
+        function <span class="apidocSignatureSpan">js-csp.csp_operations.</span>fromColl
+        <span class="apidocSignatureSpan">(coll)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function fromColl(coll) {
+  var ch = (0, _csp.chan)(coll.length);
+  onto(ch, coll);
+  return ch;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+// thread(
+//   [fromColl, [1, 2, 3, 4]],
+//   [mapFrom, inc, _],
+//   [into, [], _]
+// )
+
+// wrap()
+//   .<span class="apidocCodeKeywordSpan">fromColl</span>([1, 2, 3, 4])
+//   .mapFrom(inc)
+//   .into([])
+//   .unwrap();
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.js-csp.csp_operations.into" id="apidoc.element.js-csp.csp_operations.into">
+        function <span class="apidocSignatureSpan">js-csp.csp_operations.</span>into
+        <span class="apidocSignatureSpan">(coll, ch)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function into(coll, ch) {
+  var result = coll.slice(0);
+  return reduce(function (_result, item) {
+    _result.push(item);
+    return _result;
+  }, result, ch);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+//   [mapFrom, inc, _],
+//   [into, [], _]
+// )
+
+// wrap()
+//   .fromColl([1, 2, 3, 4])
+//   .mapFrom(inc)
+//   .<span class="apidocCodeKeywordSpan">into</span>([])
+//   .unwrap();
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.js-csp.csp_operations.map" id="apidoc.element.js-csp.csp_operations.map">
+        function <span class="apidocSignatureSpan">js-csp.csp_operations.</span>map
+        <span class="apidocSignatureSpan">(f, chs, bufferOrN)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function map(f, chs, bufferOrN) {
+  var out = (0, _csp.chan)(bufferOrN);
+  var length = chs.length;
+  // Array holding 1 round of values
+  var values = new Array(length);
+  // TODO: Not sure why we need a size-1 buffer here
+  var dchan = (0, _csp.chan)(1);
+  // How many more items this round
+  var dcount = void 0;
+  // put callbacks for each channel
+  var dcallbacks = new Array(length);
+  var callback = function callback(i) {
+    return function (value) {
+      values[i] = value;
+      dcount -= 1;
+      if (dcount === 0) {
+        (0, _process.putThenCallback)(dchan, values.slice(0));
+      }
+    };
+  };
+
+  for (var i = 0; i &#x3c; length; i += 1) {
+    dcallbacks[i] = callback(i);
+  }
+
+  (0, _csp.go)(_regenerator2.default.mark(function _callee6() {
+    var _i, _values, _i2;
+
+    return _regenerator2.default.wrap(function _callee6$(_context7) {
+      while (1) {
+        switch (_context7.prev = _context7.next) {
+          case 0:
+            dcount = length;
+            // We could just launch n goroutines here, but for effciency we
+            // don&#x27;t
+            for (_i = 0; _i &#x3c; length; _i += 1) {
+              try {
+                (0, _process.takeThenCallback)(chs[_i], dcallbacks[_i]);
+              } catch (e) {
+                // FIX: Hmm why catching here?
+                dcount -= 1;
+              }
+            }
+
+            _context7.next = 4;
+            return (0, _process.take)(dchan);
+
+          case 4:
+            _values = _context7.sent;
+            _i2 = 0;
+
+          case 6:
+            if (!(_i2 &#x3c; length)) {
+              _context7.next = 13;
+              break;
+            }
+
+            if (!(_values[_i2] === _channels.CLOSED)) {
+              _context7.next = 10;
+              break;
+            }
+
+            out.close();
+            return _context7.abrupt(&#x27;return&#x27;);
+
+          case 10:
+            _i2 += 1;
+            _context7.next = 6;
+            break;
+
+          case 13:
+            _context7.next = 15;
+            return (0, _process.put)(out, f.apply(undefined, (0, _toConsumableArray3.default)(_values)));
+
+          case 15:
+            _context7.next = 0;
+            break;
+
+          case 17:
+          case &#x27;end&#x27;:
+            return _context7.stop();
+        }
+      }
+    }, _callee6, this);
+  }));
+  return out;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+var _process = require(&#x27;./impl/process&#x27;);
+
+var _csp = require(&#x27;./csp.core&#x27;);
+
+function _interopRequireDefault(obj) { return obj &#x26;&#x26; obj.__esModule ? obj : { default: obj }; }
+
+var _marked = [mapcat].<span class="apidocCodeKeywordSpan">map</span>(_regenerator2.default.mark);
+
+function mapFrom(f, ch) {
+return {
+  isClosed: function isClosed() {
+    return ch.isClosed();
+  },
+  close: function close() {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.js-csp.csp_operations.mapFrom" id="apidoc.element.js-csp.csp_operations.mapFrom">
+        function <span class="apidocSignatureSpan">js-csp.csp_operations.</span>mapFrom
+        <span class="apidocSignatureSpan">(f, ch)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function mapFrom(f, ch) {
+  return {
+    isClosed: function isClosed() {
+      return ch.isClosed();
+    },
+    close: function close() {
+      ch.close();
+    },
+    put: function put(value, handler) {
+      return ch.put(value, handler);
+    },
+    take: function take(handler) {
+      var result = ch.take({
+        isActive: function isActive() {
+          return handler.isActive();
+        },
+        commit: function commit() {
+          var takeCallback = handler.commit();
+          return function (value) {
+            return takeCallback(value === _channels.CLOSED ? _channels.CLOSED : f(value));
+          };
+        }
+      });
+
+      if (result) {
+        var value = result.value;
+        return new _boxes.Box(value === _channels.CLOSED ? _channels.CLOSED : f(value));
+      }
+
+      return null;
+    }
+  };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+//   [fromColl, [1, 2, 3, 4]],
+//   [mapFrom, inc, _],
+//   [into, [], _]
+// )
+
+// wrap()
+//   .fromColl([1, 2, 3, 4])
+//   .<span class="apidocCodeKeywordSpan">mapFrom</span>(inc)
+//   .into([])
+//   .unwrap();
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.js-csp.csp_operations.mapInto" id="apidoc.element.js-csp.csp_operations.mapInto">
+        function <span class="apidocSignatureSpan">js-csp.csp_operations.</span>mapInto
+        <span class="apidocSignatureSpan">(f, ch)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function mapInto(f, ch) {
+  return {
+    isClosed: function isClosed() {
+      return ch.isClosed();
+    },
+    close: function close() {
+      ch.close();
+    },
+    put: function put(value, handler) {
+      return ch.put(f(value), handler);
+    },
+    take: function take(handler) {
+      return ch.take(handler);
+    }
+  };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.js-csp.csp_operations.mapcatFrom" id="apidoc.element.js-csp.csp_operations.mapcatFrom">
+        function <span class="apidocSignatureSpan">js-csp.csp_operations.</span>mapcatFrom
+        <span class="apidocSignatureSpan">(f, ch, bufferOrN)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function mapcatFrom(f, ch, bufferOrN) {
+  var out = (0, _csp.chan)(bufferOrN);
+  (0, _csp.go)(mapcat, [f, ch, out]);
+  return out;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.js-csp.csp_operations.mapcatInto" id="apidoc.element.js-csp.csp_operations.mapcatInto">
+        function <span class="apidocSignatureSpan">js-csp.csp_operations.</span>mapcatInto
+        <span class="apidocSignatureSpan">(f, ch, bufferOrN)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function mapcatInto(f, ch, bufferOrN) {
+  var src = (0, _csp.chan)(bufferOrN);
+  (0, _csp.go)(mapcat, [f, src, ch]);
+  return src;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.js-csp.csp_operations.merge" id="apidoc.element.js-csp.csp_operations.merge">
+        function <span class="apidocSignatureSpan">js-csp.csp_operations.</span>merge
+        <span class="apidocSignatureSpan">(chs, bufferOrN)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function merge(chs, bufferOrN) {
+  var out = (0, _csp.chan)(bufferOrN);
+  var actives = chs.slice(0);
+  (0, _csp.go)(_regenerator2.default.mark(function _callee7() {
+    var r, value, i;
+    return _regenerator2.default.wrap(function _callee7$(_context8) {
+      while (1) {
+        switch (_context8.prev = _context8.next) {
+          case 0:
+            if (!(actives.length === 0)) {
+              _context8.next = 2;
+              break;
+            }
+
+            return _context8.abrupt(&#x27;break&#x27;, 15);
+
+          case 2:
+            _context8.next = 4;
+            return (0, _process.alts)(actives);
+
+          case 4:
+            r = _context8.sent;
+            value = r.value;
+
+            if (!(value === _channels.CLOSED)) {
+              _context8.next = 11;
+              break;
+            }
+
+            // Remove closed channel
+            i = actives.indexOf(r.channel);
+
+            actives.splice(i, 1);
+            _context8.next = 13;
+            break;
+
+          case 11:
+            _context8.next = 13;
+            return (0, _process.put)(out, value);
+
+          case 13:
+            _context8.next = 0;
+            break;
+
+          case 15:
+            out.close();
+
+          case 16:
+          case &#x27;end&#x27;:
+            return _context8.stop();
+        }
+      }
+    }, _callee7, this);
+  }));
+  return out;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.js-csp.csp_operations.mix" id="apidoc.element.js-csp.csp_operations.mix">
+        function <span class="apidocSignatureSpan">js-csp.csp_operations.</span>mix
+        <span class="apidocSignatureSpan">(out)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function mix(out) {
+  var m = new Mix(out);
+  (0, _csp.go)(_regenerator2.default.mark(function _callee13() {
+    var state, result, _value, channel, solos, stillOpen;
+
+    return _regenerator2.default.wrap(function _callee13$(_context15) {
+      while (1) {
+        switch (_context15.prev = _context15.next) {
+          case 0:
+            state = m._getAllState();
+
+          case 1:
+            _context15.next = 3;
+            return (0, _process.alts)(state.reads);
+
+          case 3:
+            result = _context15.sent;
+            _value = result.value;
+            channel = result.channel;
+
+            if (!(_value === _channels.CLOSED)) {
+              _context15.next = 11;
+              break;
+            }
+
+            delete m.stateMap[chanId(channel)];
+            state = m._getAllState();
+            _context15.next = 22;
+            break;
+
+          case 11:
+            if (!(channel === m.change)) {
+              _context15.next = 15;
+              break;
+            }
+
+            state = m._getAllState();
+            _context15.next = 22;
+            break;
+
+          case 15:
+            solos = state.solos;
+
+            if (!(solos.indexOf(channel) &#x3e; -1 || solos.length === 0 &#x26;&#x26; !(state.mutes.indexOf(channel) &#x3e; -1))) {
+              _context15.next = 22;
+              break;
+            }
+
+            _context15.next = 19;
+            return (0, _process.put)(out, _value);
+
+          case 19:
+            stillOpen = _context15.sent;
+
+            if (stillOpen) {
+              _context15.next = 22;
+              break;
+            }
+
+            return _context15.abrupt(&#x27;break&#x27;, 24);
+
+          case 22:
+            _context15.next = 1;
+            break;
+
+          case 24:
+          case &#x27;end&#x27;:
+            return _context15.stop();
+        }
+      }
+    }, _callee13, this);
+  }));
+  return m;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.js-csp.csp_operations.mult" id="apidoc.element.js-csp.csp_operations.mult">
+        function <span class="apidocSignatureSpan">js-csp.csp_operations.</span>mult
+        <span class="apidocSignatureSpan">(ch)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function mult(ch) {
+  var m = new Mult(ch);
+  var dchan = (0, _csp.chan)(1);
+  var dcount = void 0;
+
+  function makeDoneCallback(tap) {
+    return function (stillOpen) {
+      dcount -= 1;
+      if (dcount === 0) {
+        (0, _process.putThenCallback)(dchan, true);
+      }
+      if (!stillOpen) {
+        m.untap(tap.channel);
+      }
+    };
+  }
+
+  (0, _csp.go)(_regenerator2.default.mark(function _callee12() {
+    var _this = this;
+
+    var _loop, _ret;
+
+    return _regenerator2.default.wrap(function _callee12$(_context14) {
+      while (1) {
+        switch (_context14.prev = _context14.next) {
+          case 0:
+            _loop = _regenerator2.default.mark(function _loop() {
+              var value, taps, t, initDcount;
+              return _regenerator2.default.wrap(function _loop$(_context13) {
+                while (1) {
+                  switch (_context13.prev = _context13.next) {
+                    case 0:
+                      _context13.next = 2;
+                      return (0, _process.take)(ch);
+
+                    case 2:
+                      value = _context13.sent;
+                      taps = m.taps;
+                      t = void 0;
+
+                      if (!(value === _channels.CLOSED)) {
+                        _context13.next = 9;
+                        break;
+                      }
+
+                      (0, _keys2.default)(taps).forEach(function (id) {
+                        t = taps[id];
+                        if (!t.keepOpen) {
+                          t.channel.close();
+                        }
+                      });
+
+                      // TODO: Is this necessary?
+                      m.untapAll();
+                      return _context13.abrupt(&#x27;return&#x27;, &#x27;break&#x27;);
+
+                    case 9:
+                      dcount = (0, _keys2.default)(taps).length;
+                      // XXX: This is because putAsync can actually call back
+                      // immediately. Fix that
+                      initDcount = dcount;
+                      // Put value on tapping channels...
+
+                      (0, _keys2.default)(taps).forEach(function (id) {
+                        t = taps[id];
+                        (0, _process.putThenCallback)(t.channel, value, makeDoneCallback(t));
+                      });
+                      // ... waiting for all puts to complete
+
+                      if (!(initDcount &#x3e; 0)) {
+                        _context13.next = 15;
+                        break;
+                      }
+
+                      _context13.next = 15;
+                      return (0, _process.take)(dchan);
+
+                    case 15:
+                    case &#x27;end&#x27;:
+                      return _context13.stop();
+                  }
+                }
+              }, _loop, _this);
+            });
+
+          case 1:
+            return _context14.delegateYield(_loop(), &#x27;t0&#x27;, 2);
+
+          case 2:
+            _ret = _context14.t0;
+
+            if (!(_ret === &#x27;break&#x27;)) {
+              _context14.next = 5;
+              break;
+            }
+
+            return _context14.abrupt(&#x27;break&#x27;, 7);
+
+          case 5:
+            _context14.next = 1;
+            break;
+
+          case 7:
+          case &#x27;end&#x27;:
+            return _context14.stop();
+        }
+      }
+    }, _callee12, this);
+  }));
+  return m;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.js-csp.csp_operations.onto" id="apidoc.element.js-csp.csp_operations.onto">
+        function <span class="apidocSignatureSpan">js-csp.csp_operations.</span>onto
+        <span class="apidocSignatureSpan">(ch, coll, keepOpen)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function onto(ch, coll, keepOpen) {
+  return (0, _csp.go)(_regenerator2.default.mark(function _callee5() {
+    var length, i;
+    return _regenerator2.default.wrap(function _callee5$(_context6) {
+      while (1) {
+        switch (_context6.prev = _context6.next) {
+          case 0:
+            length = coll.length;
+            // FIX: Should be a generic looping interface (for...in?)
+
+            i = 0;
+
+          case 2:
+            if (!(i &#x3c; length)) {
+              _context6.next = 8;
+              break;
+            }
+
+            _context6.next = 5;
+            return (0, _process.put)(ch, coll[i]);
+
+          case 5:
+            i += 1;
+            _context6.next = 2;
+            break;
+
+          case 8:
+            if (!keepOpen) {
+              ch.close();
+            }
+
+          case 9:
+          case &#x27;end&#x27;:
+            return _context6.stop();
+        }
+      }
+    }, _callee5, this);
+  }));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.js-csp.csp_operations.partition" id="apidoc.element.js-csp.csp_operations.partition">
+        function <span class="apidocSignatureSpan">js-csp.csp_operations.</span>partition
+        <span class="apidocSignatureSpan">(n, ch, bufferOrN)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function partition(n, ch, bufferOrN) {
+  var out = (0, _csp.chan)(bufferOrN);
+  (0, _csp.go)(_regenerator2.default.mark(function _callee11() {
+    var part, i, value;
+    return _regenerator2.default.wrap(function _callee11$(_context12) {
+      while (1) {
+        switch (_context12.prev = _context12.next) {
+          case 0:
+            part = new Array(n);
+            i = 0;
+
+          case 2:
+            if (!(i &#x3c; n)) {
+              _context12.next = 16;
+              break;
+            }
+
+            _context12.next = 5;
+            return (0, _process.take)(ch);
+
+          case 5:
+            value = _context12.sent;
+
+            if (!(value === _channels.CLOSED)) {
+              _context12.next = 12;
+              break;
+            }
+
+            if (!(i &#x3e; 0)) {
+              _context12.next = 10;
+              break;
+            }
+
+            _context12.next = 10;
+            return (0, _process.put)(out, part.slice(0, i));
+
+          case 10:
+            out.close();
+            return _context12.abrupt(&#x27;return&#x27;);
+
+          case 12:
+            part[i] = value;
+
+          case 13:
+            i += 1;
+            _context12.next = 2;
+            break;
+
+          case 16:
+            _context12.next = 18;
+            return (0, _process.put)(out, part);
+
+          case 18:
+            _context12.next = 0;
+            break;
+
+          case 20:
+          case &#x27;end&#x27;:
+            return _context12.stop();
+        }
+      }
+    }, _callee11, this);
+  }));
+  return out;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.js-csp.csp_operations.partitionBy" id="apidoc.element.js-csp.csp_operations.partitionBy">
+        function <span class="apidocSignatureSpan">js-csp.csp_operations.</span>partitionBy
+        <span class="apidocSignatureSpan">(f, ch, bufferOrN)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function partitionBy(f, ch, bufferOrN) {
+  var out = (0, _csp.chan)(bufferOrN);
+  var part = [];
+  var last = NOTHING;
+  (0, _csp.go)(_regenerator2.default.mark(function _callee10() {
+    var value, newItem;
+    return _regenerator2.default.wrap(function _callee10$(_context11) {
+      while (1) {
+        switch (_context11.prev = _context11.next) {
+          case 0:
+            _context11.next = 2;
+            return (0, _process.take)(ch);
+
+          case 2:
+            value = _context11.sent;
+
+            if (!(value === _channels.CLOSED)) {
+              _context11.next = 11;
+              break;
+            }
+
+            if (!(part.length &#x3e; 0)) {
+              _context11.next = 7;
+              break;
+            }
+
+            _context11.next = 7;
+            return (0, _process.put)(out, part);
+
+          case 7:
+            out.close();
+            return _context11.abrupt(&#x27;break&#x27;, 22);
+
+          case 11:
+            newItem = f(value);
+
+            if (!(newItem === last || last === NOTHING)) {
+              _context11.next = 16;
+              break;
+            }
+
+            part.push(value);
+            _context11.next = 19;
+            break;
+
+          case 16:
+            _context11.next = 18;
+            return (0, _process.put)(out, part);
+
+          case 18:
+            part = [value];
+
+          case 19:
+            last = newItem;
+
+          case 20:
+            _context11.next = 0;
+            break;
+
+          case 22:
+          case &#x27;end&#x27;:
+            return _context11.stop();
+        }
+      }
+    }, _callee10, this);
+  }));
+  return out;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.js-csp.csp_operations.pipe" id="apidoc.element.js-csp.csp_operations.pipe">
+        function <span class="apidocSignatureSpan">js-csp.csp_operations.</span>pipe
+        <span class="apidocSignatureSpan">(src, dst, keepOpen)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function pipe(src, dst, keepOpen) {
+  (0, _csp.go)(_regenerator2.default.mark(function _callee2() {
+    var value;
+    return _regenerator2.default.wrap(function _callee2$(_context3) {
+      while (1) {
+        switch (_context3.prev = _context3.next) {
+          case 0:
+            _context3.next = 2;
+            return (0, _process.take)(src);
+
+          case 2:
+            value = _context3.sent;
+
+            if (!(value === _channels.CLOSED)) {
+              _context3.next = 6;
+              break;
+            }
+
+            if (!keepOpen) {
+              dst.close();
+            }
+            return _context3.abrupt(&#x27;break&#x27;, 12);
+
+          case 6:
+            _context3.next = 8;
+            return (0, _process.put)(dst, value);
+
+          case 8:
+            if (_context3.sent) {
+              _context3.next = 10;
+              break;
+            }
+
+            return _context3.abrupt(&#x27;break&#x27;, 12);
+
+          case 10:
+            _context3.next = 0;
+            break;
+
+          case 12:
+          case &#x27;end&#x27;:
+            return _context3.stop();
+        }
+      }
+    }, _callee2, this);
+  }));
+  return dst;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.js-csp.csp_operations.pipeline" id="apidoc.element.js-csp.csp_operations.pipeline">
+        function <span class="apidocSignatureSpan">js-csp.csp_operations.</span>pipeline
+        <span class="apidocSignatureSpan">(to, xf, from, keepOpen, exHandler)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function pipeline(to, xf, from, keepOpen, exHandler) {
+  function taskFn(job) {
+    if (job === _channels.CLOSED) {
+      return null;
+    }
+
+    var _job = (0, _slicedToArray3.default)(job, 2),
+        v = _job[0],
+        p = _job[1];
+
+    var res = (0, _csp.chan)(1, xf, exHandler);
+
+    (0, _csp.go)(_regenerator2.default.mark(function _callee18(ch, value) {
+      return _regenerator2.default.wrap(function _callee18$(_context21) {
+        while (1) {
+          switch (_context21.prev = _context21.next) {
+            case 0:
+              _context21.next = 2;
+              return (0, _process.put)(ch, value);
+
+            case 2:
+              res.close();
+
+            case 3:
+            case &#x27;end&#x27;:
+              return _context21.stop();
+          }
+        }
+      }, _callee18, this);
+    }), [res, v]);
+
+    (0, _process.putThenCallback)(p, res);
+
+    return true;
+  }
+
+  return pipelineInternal(1, to, from, !keepOpen, taskFn);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.js-csp.csp_operations.pipelineAsync" id="apidoc.element.js-csp.csp_operations.pipelineAsync">
+        function <span class="apidocSignatureSpan">js-csp.csp_operations.</span>pipelineAsync
+        <span class="apidocSignatureSpan">(n, to, af, from, keepOpen)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function pipelineAsync(n, to, af, from, keepOpen) {
+  function taskFn(job) {
+    if (job === _channels.CLOSED) {
+      return null;
+    }
+
+    var _job2 = (0, _slicedToArray3.default)(job, 2),
+        v = _job2[0],
+        p = _job2[1];
+
+    var res = (0, _csp.chan)(1);
+    af(v, res);
+    (0, _process.putThenCallback)(p, res);
+
+    return true;
+  }
+
+  return pipelineInternal(n, to, from, !keepOpen, taskFn);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.js-csp.csp_operations.pub" id="apidoc.element.js-csp.csp_operations.pub">
+        function <span class="apidocSignatureSpan">js-csp.csp_operations.</span>pub
+        <span class="apidocSignatureSpan">(ch, topicFn)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function pub(ch, topicFn) {
+  var bufferFn = arguments.length &#x3e; 2 &#x26;&#x26; arguments[2] !== undefined ? arguments[2] : constantlyNull;
+
+  var p = new Pub(ch, topicFn, bufferFn);
+  (0, _csp.go)(_regenerator2.default.mark(function _callee14() {
+    var _this3 = this;
+
+    var _loop3, _ret3;
+
+    return _regenerator2.default.wrap(function _callee14$(_context17) {
+      while (1) {
+        switch (_context17.prev = _context17.next) {
+          case 0:
+            _loop3 = _regenerator2.default.mark(function _loop3() {
+              var value, mults, topic, m, stillOpen;
+              return _regenerator2.default.wrap(function _loop3$(_context16) {
+                while (1) {
+                  switch (_context16.prev = _context16.next) {
+                    case 0:
+                      _context16.next = 2;
+                      return (0, _process.take)(ch);
+
+                    case 2:
+                      value = _context16.sent;
+                      mults = p.mults;
+
+                      if (!(value === _channels.CLOSED)) {
+                        _context16.next = 7;
+                        break;
+                      }
+
+                      (0, _keys2.default)(mults).forEach(function (topic) {
+                        mults[topic].muxch().close();
+                      });
+                      return _context16.abrupt(&#x27;return&#x27;, &#x27;break&#x27;);
+
+                    case 7:
+                      // TODO: Somehow ensure/document that this must return a string
+                      // (otherwise use proper (hash)maps)
+                      topic = topicFn(value);
+                      m = mults[topic];
+
+                      if (!m) {
+                        _context16.next = 14;
+                        break;
+                      }
+
+                      _context16.next = 12;
+                      return (0, _process.put)(m.muxch(), value);
+
+                    case 12:
+                      stillOpen = _context16.sent;
+
+                      if (!stillOpen) {
+                        delete mults[topic];
+                      }
+
+                    case 14:
+                    case &#x27;end&#x27;:
+                      return _context16.stop();
+                  }
+                }
+              }, _loop3, _this3);
+            });
+
+          case 1:
+            return _context17.delegateYield(_loop3(), &#x27;t0&#x27;, 2);
+
+          case 2:
+            _ret3 = _context17.t0;
+
+            if (!(_ret3 === &#x27;break&#x27;)) {
+              _context17.next = 5;
+              break;
+            }
+
+            return _context17.abrupt(&#x27;break&#x27;, 7);
+
+          case 5:
+            _context17.next = 1;
+            break;
+
+          case 7:
+          case &#x27;end&#x27;:
+            return _context17.stop();
+        }
+      }
+    }, _callee14, this);
+  }));
+  return p;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.js-csp.csp_operations.reduce" id="apidoc.element.js-csp.csp_operations.reduce">
+        function <span class="apidocSignatureSpan">js-csp.csp_operations.</span>reduce
+        <span class="apidocSignatureSpan">(f, init, ch)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function reduce(f, init, ch) {
+  return (0, _csp.go)(_regenerator2.default.mark(function _callee4() {
+    var result, value;
+    return _regenerator2.default.wrap(function _callee4$(_context5) {
+      while (1) {
+        switch (_context5.prev = _context5.next) {
+          case 0:
+            result = init;
+
+          case 1:
+            _context5.next = 3;
+            return (0, _process.take)(ch);
+
+          case 3:
+            value = _context5.sent;
+
+            if (!(value === _channels.CLOSED)) {
+              _context5.next = 6;
+              break;
+            }
+
+            return _context5.abrupt(&#x27;return&#x27;, result);
+
+          case 6:
+
+            result = f(result, value);
+
+          case 7:
+            _context5.next = 1;
+            break;
+
+          case 9:
+          case &#x27;end&#x27;:
+            return _context5.stop();
+        }
+      }
+    }, _callee4, this);
+  }), [], true);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.js-csp.csp_operations.removeFrom" id="apidoc.element.js-csp.csp_operations.removeFrom">
+        function <span class="apidocSignatureSpan">js-csp.csp_operations.</span>removeFrom
+        <span class="apidocSignatureSpan">(p, ch)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function removeFrom(p, ch) {
+  return filterFrom(function (value) {
+    return !p(value);
+  }, ch);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.js-csp.csp_operations.removeInto" id="apidoc.element.js-csp.csp_operations.removeInto">
+        function <span class="apidocSignatureSpan">js-csp.csp_operations.</span>removeInto
+        <span class="apidocSignatureSpan">(p, ch)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function removeInto(p, ch) {
+  return filterInto(function (value) {
+    return !p(value);
+  }, ch);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.js-csp.csp_operations.split" id="apidoc.element.js-csp.csp_operations.split">
+        function <span class="apidocSignatureSpan">js-csp.csp_operations.</span>split
+        <span class="apidocSignatureSpan">(p, ch, trueBufferOrN, falseBufferOrN)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function split(p, ch, trueBufferOrN, falseBufferOrN) {
+  var tch = (0, _csp.chan)(trueBufferOrN);
+  var fch = (0, _csp.chan)(falseBufferOrN);
+  (0, _csp.go)(_regenerator2.default.mark(function _callee3() {
+    var value;
+    return _regenerator2.default.wrap(function _callee3$(_context4) {
+      while (1) {
+        switch (_context4.prev = _context4.next) {
+          case 0:
+            _context4.next = 2;
+            return (0, _process.take)(ch);
+
+          case 2:
+            value = _context4.sent;
+
+            if (!(value === _channels.CLOSED)) {
+              _context4.next = 7;
+              break;
+            }
+
+            tch.close();
+            fch.close();
+            return _context4.abrupt(&#x27;break&#x27;, 11);
+
+          case 7:
+            _context4.next = 9;
+            return (0, _process.put)(p(value) ? tch : fch, value);
+
+          case 9:
+            _context4.next = 0;
+            break;
+
+          case 11:
+          case &#x27;end&#x27;:
+            return _context4.stop();
+        }
+      }
+    }, _callee3, this);
+  }));
+  return [tch, fch];
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.js-csp.csp_operations.take" id="apidoc.element.js-csp.csp_operations.take">
+        function <span class="apidocSignatureSpan">js-csp.csp_operations.</span>take
+        <span class="apidocSignatureSpan">(n, ch, bufferOrN)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function take(n, ch, bufferOrN) {
+  var out = (0, _csp.chan)(bufferOrN);
+  (0, _csp.go)(_regenerator2.default.mark(function _callee8() {
+    var i, value;
+    return _regenerator2.default.wrap(function _callee8$(_context9) {
+      while (1) {
+        switch (_context9.prev = _context9.next) {
+          case 0:
+            i = 0;
+
+          case 1:
+            if (!(i &#x3c; n)) {
+              _context9.next = 12;
+              break;
+            }
+
+            _context9.next = 4;
+            return (0, _process.take)(ch);
+
+          case 4:
+            value = _context9.sent;
+
+            if (!(value === _channels.CLOSED)) {
+              _context9.next = 7;
+              break;
+            }
+
+            return _context9.abrupt(&#x27;break&#x27;, 12);
+
+          case 7:
+            _context9.next = 9;
+            return (0, _process.put)(out, value);
+
+          case 9:
+            i += 1;
+            _context9.next = 1;
+            break;
+
+          case 12:
+            out.close();
+
+          case 13:
+          case &#x27;end&#x27;:
+            return _context9.stop();
+        }
+      }
+    }, _callee8, this);
+  }));
+  return out;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+```
+
+Pingpong (ported from [Go](http://talks.golang.org/2013/advconc.slide#6)).
+
+```javascript
+function* player(name, table) {
+  while (true) {
+let ball = yield csp.<span class="apidocCodeKeywordSpan">take</span>(table);
+
+if (ball === csp.CLOSED) {
+  console.log(name + &#x22;: table&#x27;s gone&#x22;);
+  return;
+}
+
+ball.hits += 1;
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.js-csp.csp_operations.unique" id="apidoc.element.js-csp.csp_operations.unique">
+        function <span class="apidocSignatureSpan">js-csp.csp_operations.</span>unique
+        <span class="apidocSignatureSpan">(ch, bufferOrN)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function unique(ch, bufferOrN) {
+  var out = (0, _csp.chan)(bufferOrN);
+  var last = NOTHING;
+  (0, _csp.go)(_regenerator2.default.mark(function _callee9() {
+    var value;
+    return _regenerator2.default.wrap(function _callee9$(_context10) {
+      while (1) {
+        switch (_context10.prev = _context10.next) {
+          case 0:
+            _context10.next = 2;
+            return (0, _process.take)(ch);
+
+          case 2:
+            value = _context10.sent;
+
+            if (!(value === _channels.CLOSED)) {
+              _context10.next = 5;
+              break;
+            }
+
+            return _context10.abrupt(&#x27;break&#x27;, 11);
+
+          case 5:
+            if (!(value !== last)) {
+              _context10.next = 9;
+              break;
+            }
+
+            last = value;
+            _context10.next = 9;
+            return (0, _process.put)(out, value);
+
+          case 9:
+            _context10.next = 0;
+            break;
+
+          case 11:
+            out.close();
+
+          case 12:
+          case &#x27;end&#x27;:
+            return _context10.stop();
+        }
+      }
+    }, _callee9, this);
+  }));
+  return out;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.js-csp.operations" id="apidoc.module.js-csp.operations">module js-csp.operations</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.js-csp.operations.filterFrom" id="apidoc.element.js-csp.operations.filterFrom">
+        function <span class="apidocSignatureSpan">js-csp.operations.</span>filterFrom
+        <span class="apidocSignatureSpan">(p, ch, bufferOrN)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function filterFrom(p, ch, bufferOrN) {
+  var out = (0, _csp.chan)(bufferOrN);
+
+  (0, _csp.go)(_regenerator2.default.mark(function _callee() {
+    var value;
+    return _regenerator2.default.wrap(function _callee$(_context) {
+      while (1) {
+        switch (_context.prev = _context.next) {
+          case 0:
+            _context.next = 2;
+            return (0, _process.take)(ch);
+
+          case 2:
+            value = _context.sent;
+
+            if (!(value === _channels.CLOSED)) {
+              _context.next = 6;
+              break;
+            }
+
+            out.close();
+            return _context.abrupt(&#x27;break&#x27;, 11);
+
+          case 6:
+            if (!p(value)) {
+              _context.next = 9;
+              break;
+            }
+
+            _context.next = 9;
+            return (0, _process.put)(out, value);
+
+          case 9:
+            _context.next = 0;
+            break;
+
+          case 11:
+          case &#x27;end&#x27;:
+            return _context.stop();
+        }
+      }
+    }, _callee, this);
+  }));
+  return out;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.js-csp.operations.filterInto" id="apidoc.element.js-csp.operations.filterInto">
+        function <span class="apidocSignatureSpan">js-csp.operations.</span>filterInto
+        <span class="apidocSignatureSpan">(p, ch)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function filterInto(p, ch) {
+  return {
+    isClosed: function isClosed() {
+      return ch.isClosed();
+    },
+    close: function close() {
+      ch.close();
+    },
+    put: function put(value, handler) {
+      if (p(value)) {
+        return ch.put(value, handler);
+      }
+
+      return new _boxes.Box(!ch.isClosed());
+    },
+    take: function take(handler) {
+      return ch.take(handler);
+    }
+  };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.js-csp.operations.fromColl" id="apidoc.element.js-csp.operations.fromColl">
+        function <span class="apidocSignatureSpan">js-csp.operations.</span>fromColl
+        <span class="apidocSignatureSpan">(coll)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function fromColl(coll) {
+  var ch = (0, _csp.chan)(coll.length);
+  onto(ch, coll);
+  return ch;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+// thread(
+//   [fromColl, [1, 2, 3, 4]],
+//   [mapFrom, inc, _],
+//   [into, [], _]
+// )
+
+// wrap()
+//   .<span class="apidocCodeKeywordSpan">fromColl</span>([1, 2, 3, 4])
+//   .mapFrom(inc)
+//   .into([])
+//   .unwrap();
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.js-csp.operations.into" id="apidoc.element.js-csp.operations.into">
+        function <span class="apidocSignatureSpan">js-csp.operations.</span>into
+        <span class="apidocSignatureSpan">(coll, ch)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function into(coll, ch) {
+  var result = coll.slice(0);
+  return reduce(function (_result, item) {
+    _result.push(item);
+    return _result;
+  }, result, ch);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+//   [mapFrom, inc, _],
+//   [into, [], _]
+// )
+
+// wrap()
+//   .fromColl([1, 2, 3, 4])
+//   .mapFrom(inc)
+//   .<span class="apidocCodeKeywordSpan">into</span>([])
+//   .unwrap();
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.js-csp.operations.map" id="apidoc.element.js-csp.operations.map">
+        function <span class="apidocSignatureSpan">js-csp.operations.</span>map
+        <span class="apidocSignatureSpan">(f, chs, bufferOrN)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function map(f, chs, bufferOrN) {
+  var out = (0, _csp.chan)(bufferOrN);
+  var length = chs.length;
+  // Array holding 1 round of values
+  var values = new Array(length);
+  // TODO: Not sure why we need a size-1 buffer here
+  var dchan = (0, _csp.chan)(1);
+  // How many more items this round
+  var dcount = void 0;
+  // put callbacks for each channel
+  var dcallbacks = new Array(length);
+  var callback = function callback(i) {
+    return function (value) {
+      values[i] = value;
+      dcount -= 1;
+      if (dcount === 0) {
+        (0, _process.putThenCallback)(dchan, values.slice(0));
+      }
+    };
+  };
+
+  for (var i = 0; i &#x3c; length; i += 1) {
+    dcallbacks[i] = callback(i);
+  }
+
+  (0, _csp.go)(_regenerator2.default.mark(function _callee6() {
+    var _i, _values, _i2;
+
+    return _regenerator2.default.wrap(function _callee6$(_context7) {
+      while (1) {
+        switch (_context7.prev = _context7.next) {
+          case 0:
+            dcount = length;
+            // We could just launch n goroutines here, but for effciency we
+            // don&#x27;t
+            for (_i = 0; _i &#x3c; length; _i += 1) {
+              try {
+                (0, _process.takeThenCallback)(chs[_i], dcallbacks[_i]);
+              } catch (e) {
+                // FIX: Hmm why catching here?
+                dcount -= 1;
+              }
+            }
+
+            _context7.next = 4;
+            return (0, _process.take)(dchan);
+
+          case 4:
+            _values = _context7.sent;
+            _i2 = 0;
+
+          case 6:
+            if (!(_i2 &#x3c; length)) {
+              _context7.next = 13;
+              break;
+            }
+
+            if (!(_values[_i2] === _channels.CLOSED)) {
+              _context7.next = 10;
+              break;
+            }
+
+            out.close();
+            return _context7.abrupt(&#x27;return&#x27;);
+
+          case 10:
+            _i2 += 1;
+            _context7.next = 6;
+            break;
+
+          case 13:
+            _context7.next = 15;
+            return (0, _process.put)(out, f.apply(undefined, (0, _toConsumableArray3.default)(_values)));
+
+          case 15:
+            _context7.next = 0;
+            break;
+
+          case 17:
+          case &#x27;end&#x27;:
+            return _context7.stop();
+        }
+      }
+    }, _callee6, this);
+  }));
+  return out;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+var _process = require(&#x27;./impl/process&#x27;);
+
+var _csp = require(&#x27;./csp.core&#x27;);
+
+function _interopRequireDefault(obj) { return obj &#x26;&#x26; obj.__esModule ? obj : { default: obj }; }
+
+var _marked = [mapcat].<span class="apidocCodeKeywordSpan">map</span>(_regenerator2.default.mark);
+
+function mapFrom(f, ch) {
+return {
+  isClosed: function isClosed() {
+    return ch.isClosed();
+  },
+  close: function close() {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.js-csp.operations.mapFrom" id="apidoc.element.js-csp.operations.mapFrom">
+        function <span class="apidocSignatureSpan">js-csp.operations.</span>mapFrom
+        <span class="apidocSignatureSpan">(f, ch)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function mapFrom(f, ch) {
+  return {
+    isClosed: function isClosed() {
+      return ch.isClosed();
+    },
+    close: function close() {
+      ch.close();
+    },
+    put: function put(value, handler) {
+      return ch.put(value, handler);
+    },
+    take: function take(handler) {
+      var result = ch.take({
+        isActive: function isActive() {
+          return handler.isActive();
+        },
+        commit: function commit() {
+          var takeCallback = handler.commit();
+          return function (value) {
+            return takeCallback(value === _channels.CLOSED ? _channels.CLOSED : f(value));
+          };
+        }
+      });
+
+      if (result) {
+        var value = result.value;
+        return new _boxes.Box(value === _channels.CLOSED ? _channels.CLOSED : f(value));
+      }
+
+      return null;
+    }
+  };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+//   [fromColl, [1, 2, 3, 4]],
+//   [mapFrom, inc, _],
+//   [into, [], _]
+// )
+
+// wrap()
+//   .fromColl([1, 2, 3, 4])
+//   .<span class="apidocCodeKeywordSpan">mapFrom</span>(inc)
+//   .into([])
+//   .unwrap();
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.js-csp.operations.mapInto" id="apidoc.element.js-csp.operations.mapInto">
+        function <span class="apidocSignatureSpan">js-csp.operations.</span>mapInto
+        <span class="apidocSignatureSpan">(f, ch)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function mapInto(f, ch) {
+  return {
+    isClosed: function isClosed() {
+      return ch.isClosed();
+    },
+    close: function close() {
+      ch.close();
+    },
+    put: function put(value, handler) {
+      return ch.put(f(value), handler);
+    },
+    take: function take(handler) {
+      return ch.take(handler);
+    }
+  };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.js-csp.operations.mapcatFrom" id="apidoc.element.js-csp.operations.mapcatFrom">
+        function <span class="apidocSignatureSpan">js-csp.operations.</span>mapcatFrom
+        <span class="apidocSignatureSpan">(f, ch, bufferOrN)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function mapcatFrom(f, ch, bufferOrN) {
+  var out = (0, _csp.chan)(bufferOrN);
+  (0, _csp.go)(mapcat, [f, ch, out]);
+  return out;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.js-csp.operations.mapcatInto" id="apidoc.element.js-csp.operations.mapcatInto">
+        function <span class="apidocSignatureSpan">js-csp.operations.</span>mapcatInto
+        <span class="apidocSignatureSpan">(f, ch, bufferOrN)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function mapcatInto(f, ch, bufferOrN) {
+  var src = (0, _csp.chan)(bufferOrN);
+  (0, _csp.go)(mapcat, [f, src, ch]);
+  return src;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.js-csp.operations.merge" id="apidoc.element.js-csp.operations.merge">
+        function <span class="apidocSignatureSpan">js-csp.operations.</span>merge
+        <span class="apidocSignatureSpan">(chs, bufferOrN)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function merge(chs, bufferOrN) {
+  var out = (0, _csp.chan)(bufferOrN);
+  var actives = chs.slice(0);
+  (0, _csp.go)(_regenerator2.default.mark(function _callee7() {
+    var r, value, i;
+    return _regenerator2.default.wrap(function _callee7$(_context8) {
+      while (1) {
+        switch (_context8.prev = _context8.next) {
+          case 0:
+            if (!(actives.length === 0)) {
+              _context8.next = 2;
+              break;
+            }
+
+            return _context8.abrupt(&#x27;break&#x27;, 15);
+
+          case 2:
+            _context8.next = 4;
+            return (0, _process.alts)(actives);
+
+          case 4:
+            r = _context8.sent;
+            value = r.value;
+
+            if (!(value === _channels.CLOSED)) {
+              _context8.next = 11;
+              break;
+            }
+
+            // Remove closed channel
+            i = actives.indexOf(r.channel);
+
+            actives.splice(i, 1);
+            _context8.next = 13;
+            break;
+
+          case 11:
+            _context8.next = 13;
+            return (0, _process.put)(out, value);
+
+          case 13:
+            _context8.next = 0;
+            break;
+
+          case 15:
+            out.close();
+
+          case 16:
+          case &#x27;end&#x27;:
+            return _context8.stop();
+        }
+      }
+    }, _callee7, this);
+  }));
+  return out;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.js-csp.operations.mix" id="apidoc.element.js-csp.operations.mix">
+        function <span class="apidocSignatureSpan">js-csp.operations.</span>mix
+        <span class="apidocSignatureSpan">(out)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function mix(out) {
+  var m = new Mix(out);
+  (0, _csp.go)(_regenerator2.default.mark(function _callee13() {
+    var state, result, _value, channel, solos, stillOpen;
+
+    return _regenerator2.default.wrap(function _callee13$(_context15) {
+      while (1) {
+        switch (_context15.prev = _context15.next) {
+          case 0:
+            state = m._getAllState();
+
+          case 1:
+            _context15.next = 3;
+            return (0, _process.alts)(state.reads);
+
+          case 3:
+            result = _context15.sent;
+            _value = result.value;
+            channel = result.channel;
+
+            if (!(_value === _channels.CLOSED)) {
+              _context15.next = 11;
+              break;
+            }
+
+            delete m.stateMap[chanId(channel)];
+            state = m._getAllState();
+            _context15.next = 22;
+            break;
+
+          case 11:
+            if (!(channel === m.change)) {
+              _context15.next = 15;
+              break;
+            }
+
+            state = m._getAllState();
+            _context15.next = 22;
+            break;
+
+          case 15:
+            solos = state.solos;
+
+            if (!(solos.indexOf(channel) &#x3e; -1 || solos.length === 0 &#x26;&#x26; !(state.mutes.indexOf(channel) &#x3e; -1))) {
+              _context15.next = 22;
+              break;
+            }
+
+            _context15.next = 19;
+            return (0, _process.put)(out, _value);
+
+          case 19:
+            stillOpen = _context15.sent;
+
+            if (stillOpen) {
+              _context15.next = 22;
+              break;
+            }
+
+            return _context15.abrupt(&#x27;break&#x27;, 24);
+
+          case 22:
+            _context15.next = 1;
+            break;
+
+          case 24:
+          case &#x27;end&#x27;:
+            return _context15.stop();
+        }
+      }
+    }, _callee13, this);
+  }));
+  return m;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.js-csp.operations.mult" id="apidoc.element.js-csp.operations.mult">
+        function <span class="apidocSignatureSpan">js-csp.operations.</span>mult
+        <span class="apidocSignatureSpan">(ch)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function mult(ch) {
+  var m = new Mult(ch);
+  var dchan = (0, _csp.chan)(1);
+  var dcount = void 0;
+
+  function makeDoneCallback(tap) {
+    return function (stillOpen) {
+      dcount -= 1;
+      if (dcount === 0) {
+        (0, _process.putThenCallback)(dchan, true);
+      }
+      if (!stillOpen) {
+        m.untap(tap.channel);
+      }
+    };
+  }
+
+  (0, _csp.go)(_regenerator2.default.mark(function _callee12() {
+    var _this = this;
+
+    var _loop, _ret;
+
+    return _regenerator2.default.wrap(function _callee12$(_context14) {
+      while (1) {
+        switch (_context14.prev = _context14.next) {
+          case 0:
+            _loop = _regenerator2.default.mark(function _loop() {
+              var value, taps, t, initDcount;
+              return _regenerator2.default.wrap(function _loop$(_context13) {
+                while (1) {
+                  switch (_context13.prev = _context13.next) {
+                    case 0:
+                      _context13.next = 2;
+                      return (0, _process.take)(ch);
+
+                    case 2:
+                      value = _context13.sent;
+                      taps = m.taps;
+                      t = void 0;
+
+                      if (!(value === _channels.CLOSED)) {
+                        _context13.next = 9;
+                        break;
+                      }
+
+                      (0, _keys2.default)(taps).forEach(function (id) {
+                        t = taps[id];
+                        if (!t.keepOpen) {
+                          t.channel.close();
+                        }
+                      });
+
+                      // TODO: Is this necessary?
+                      m.untapAll();
+                      return _context13.abrupt(&#x27;return&#x27;, &#x27;break&#x27;);
+
+                    case 9:
+                      dcount = (0, _keys2.default)(taps).length;
+                      // XXX: This is because putAsync can actually call back
+                      // immediately. Fix that
+                      initDcount = dcount;
+                      // Put value on tapping channels...
+
+                      (0, _keys2.default)(taps).forEach(function (id) {
+                        t = taps[id];
+                        (0, _process.putThenCallback)(t.channel, value, makeDoneCallback(t));
+                      });
+                      // ... waiting for all puts to complete
+
+                      if (!(initDcount &#x3e; 0)) {
+                        _context13.next = 15;
+                        break;
+                      }
+
+                      _context13.next = 15;
+                      return (0, _process.take)(dchan);
+
+                    case 15:
+                    case &#x27;end&#x27;:
+                      return _context13.stop();
+                  }
+                }
+              }, _loop, _this);
+            });
+
+          case 1:
+            return _context14.delegateYield(_loop(), &#x27;t0&#x27;, 2);
+
+          case 2:
+            _ret = _context14.t0;
+
+            if (!(_ret === &#x27;break&#x27;)) {
+              _context14.next = 5;
+              break;
+            }
+
+            return _context14.abrupt(&#x27;break&#x27;, 7);
+
+          case 5:
+            _context14.next = 1;
+            break;
+
+          case 7:
+          case &#x27;end&#x27;:
+            return _context14.stop();
+        }
+      }
+    }, _callee12, this);
+  }));
+  return m;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.js-csp.operations.onto" id="apidoc.element.js-csp.operations.onto">
+        function <span class="apidocSignatureSpan">js-csp.operations.</span>onto
+        <span class="apidocSignatureSpan">(ch, coll, keepOpen)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function onto(ch, coll, keepOpen) {
+  return (0, _csp.go)(_regenerator2.default.mark(function _callee5() {
+    var length, i;
+    return _regenerator2.default.wrap(function _callee5$(_context6) {
+      while (1) {
+        switch (_context6.prev = _context6.next) {
+          case 0:
+            length = coll.length;
+            // FIX: Should be a generic looping interface (for...in?)
+
+            i = 0;
+
+          case 2:
+            if (!(i &#x3c; length)) {
+              _context6.next = 8;
+              break;
+            }
+
+            _context6.next = 5;
+            return (0, _process.put)(ch, coll[i]);
+
+          case 5:
+            i += 1;
+            _context6.next = 2;
+            break;
+
+          case 8:
+            if (!keepOpen) {
+              ch.close();
+            }
+
+          case 9:
+          case &#x27;end&#x27;:
+            return _context6.stop();
+        }
+      }
+    }, _callee5, this);
+  }));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.js-csp.operations.partition" id="apidoc.element.js-csp.operations.partition">
+        function <span class="apidocSignatureSpan">js-csp.operations.</span>partition
+        <span class="apidocSignatureSpan">(n, ch, bufferOrN)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function partition(n, ch, bufferOrN) {
+  var out = (0, _csp.chan)(bufferOrN);
+  (0, _csp.go)(_regenerator2.default.mark(function _callee11() {
+    var part, i, value;
+    return _regenerator2.default.wrap(function _callee11$(_context12) {
+      while (1) {
+        switch (_context12.prev = _context12.next) {
+          case 0:
+            part = new Array(n);
+            i = 0;
+
+          case 2:
+            if (!(i &#x3c; n)) {
+              _context12.next = 16;
+              break;
+            }
+
+            _context12.next = 5;
+            return (0, _process.take)(ch);
+
+          case 5:
+            value = _context12.sent;
+
+            if (!(value === _channels.CLOSED)) {
+              _context12.next = 12;
+              break;
+            }
+
+            if (!(i &#x3e; 0)) {
+              _context12.next = 10;
+              break;
+            }
+
+            _context12.next = 10;
+            return (0, _process.put)(out, part.slice(0, i));
+
+          case 10:
+            out.close();
+            return _context12.abrupt(&#x27;return&#x27;);
+
+          case 12:
+            part[i] = value;
+
+          case 13:
+            i += 1;
+            _context12.next = 2;
+            break;
+
+          case 16:
+            _context12.next = 18;
+            return (0, _process.put)(out, part);
+
+          case 18:
+            _context12.next = 0;
+            break;
+
+          case 20:
+          case &#x27;end&#x27;:
+            return _context12.stop();
+        }
+      }
+    }, _callee11, this);
+  }));
+  return out;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.js-csp.operations.partitionBy" id="apidoc.element.js-csp.operations.partitionBy">
+        function <span class="apidocSignatureSpan">js-csp.operations.</span>partitionBy
+        <span class="apidocSignatureSpan">(f, ch, bufferOrN)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function partitionBy(f, ch, bufferOrN) {
+  var out = (0, _csp.chan)(bufferOrN);
+  var part = [];
+  var last = NOTHING;
+  (0, _csp.go)(_regenerator2.default.mark(function _callee10() {
+    var value, newItem;
+    return _regenerator2.default.wrap(function _callee10$(_context11) {
+      while (1) {
+        switch (_context11.prev = _context11.next) {
+          case 0:
+            _context11.next = 2;
+            return (0, _process.take)(ch);
+
+          case 2:
+            value = _context11.sent;
+
+            if (!(value === _channels.CLOSED)) {
+              _context11.next = 11;
+              break;
+            }
+
+            if (!(part.length &#x3e; 0)) {
+              _context11.next = 7;
+              break;
+            }
+
+            _context11.next = 7;
+            return (0, _process.put)(out, part);
+
+          case 7:
+            out.close();
+            return _context11.abrupt(&#x27;break&#x27;, 22);
+
+          case 11:
+            newItem = f(value);
+
+            if (!(newItem === last || last === NOTHING)) {
+              _context11.next = 16;
+              break;
+            }
+
+            part.push(value);
+            _context11.next = 19;
+            break;
+
+          case 16:
+            _context11.next = 18;
+            return (0, _process.put)(out, part);
+
+          case 18:
+            part = [value];
+
+          case 19:
+            last = newItem;
+
+          case 20:
+            _context11.next = 0;
+            break;
+
+          case 22:
+          case &#x27;end&#x27;:
+            return _context11.stop();
+        }
+      }
+    }, _callee10, this);
+  }));
+  return out;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.js-csp.operations.pipe" id="apidoc.element.js-csp.operations.pipe">
+        function <span class="apidocSignatureSpan">js-csp.operations.</span>pipe
+        <span class="apidocSignatureSpan">(src, dst, keepOpen)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function pipe(src, dst, keepOpen) {
+  (0, _csp.go)(_regenerator2.default.mark(function _callee2() {
+    var value;
+    return _regenerator2.default.wrap(function _callee2$(_context3) {
+      while (1) {
+        switch (_context3.prev = _context3.next) {
+          case 0:
+            _context3.next = 2;
+            return (0, _process.take)(src);
+
+          case 2:
+            value = _context3.sent;
+
+            if (!(value === _channels.CLOSED)) {
+              _context3.next = 6;
+              break;
+            }
+
+            if (!keepOpen) {
+              dst.close();
+            }
+            return _context3.abrupt(&#x27;break&#x27;, 12);
+
+          case 6:
+            _context3.next = 8;
+            return (0, _process.put)(dst, value);
+
+          case 8:
+            if (_context3.sent) {
+              _context3.next = 10;
+              break;
+            }
+
+            return _context3.abrupt(&#x27;break&#x27;, 12);
+
+          case 10:
+            _context3.next = 0;
+            break;
+
+          case 12:
+          case &#x27;end&#x27;:
+            return _context3.stop();
+        }
+      }
+    }, _callee2, this);
+  }));
+  return dst;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.js-csp.operations.pipeline" id="apidoc.element.js-csp.operations.pipeline">
+        function <span class="apidocSignatureSpan">js-csp.operations.</span>pipeline
+        <span class="apidocSignatureSpan">(to, xf, from, keepOpen, exHandler)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function pipeline(to, xf, from, keepOpen, exHandler) {
+  function taskFn(job) {
+    if (job === _channels.CLOSED) {
+      return null;
+    }
+
+    var _job = (0, _slicedToArray3.default)(job, 2),
+        v = _job[0],
+        p = _job[1];
+
+    var res = (0, _csp.chan)(1, xf, exHandler);
+
+    (0, _csp.go)(_regenerator2.default.mark(function _callee18(ch, value) {
+      return _regenerator2.default.wrap(function _callee18$(_context21) {
+        while (1) {
+          switch (_context21.prev = _context21.next) {
+            case 0:
+              _context21.next = 2;
+              return (0, _process.put)(ch, value);
+
+            case 2:
+              res.close();
+
+            case 3:
+            case &#x27;end&#x27;:
+              return _context21.stop();
+          }
+        }
+      }, _callee18, this);
+    }), [res, v]);
+
+    (0, _process.putThenCallback)(p, res);
+
+    return true;
+  }
+
+  return pipelineInternal(1, to, from, !keepOpen, taskFn);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.js-csp.operations.pipelineAsync" id="apidoc.element.js-csp.operations.pipelineAsync">
+        function <span class="apidocSignatureSpan">js-csp.operations.</span>pipelineAsync
+        <span class="apidocSignatureSpan">(n, to, af, from, keepOpen)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function pipelineAsync(n, to, af, from, keepOpen) {
+  function taskFn(job) {
+    if (job === _channels.CLOSED) {
+      return null;
+    }
+
+    var _job2 = (0, _slicedToArray3.default)(job, 2),
+        v = _job2[0],
+        p = _job2[1];
+
+    var res = (0, _csp.chan)(1);
+    af(v, res);
+    (0, _process.putThenCallback)(p, res);
+
+    return true;
+  }
+
+  return pipelineInternal(n, to, from, !keepOpen, taskFn);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.js-csp.operations.pub" id="apidoc.element.js-csp.operations.pub">
+        function <span class="apidocSignatureSpan">js-csp.operations.</span>pub
+        <span class="apidocSignatureSpan">(ch, topicFn)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function pub(ch, topicFn) {
+  var bufferFn = arguments.length &#x3e; 2 &#x26;&#x26; arguments[2] !== undefined ? arguments[2] : constantlyNull;
+
+  var p = new Pub(ch, topicFn, bufferFn);
+  (0, _csp.go)(_regenerator2.default.mark(function _callee14() {
+    var _this3 = this;
+
+    var _loop3, _ret3;
+
+    return _regenerator2.default.wrap(function _callee14$(_context17) {
+      while (1) {
+        switch (_context17.prev = _context17.next) {
+          case 0:
+            _loop3 = _regenerator2.default.mark(function _loop3() {
+              var value, mults, topic, m, stillOpen;
+              return _regenerator2.default.wrap(function _loop3$(_context16) {
+                while (1) {
+                  switch (_context16.prev = _context16.next) {
+                    case 0:
+                      _context16.next = 2;
+                      return (0, _process.take)(ch);
+
+                    case 2:
+                      value = _context16.sent;
+                      mults = p.mults;
+
+                      if (!(value === _channels.CLOSED)) {
+                        _context16.next = 7;
+                        break;
+                      }
+
+                      (0, _keys2.default)(mults).forEach(function (topic) {
+                        mults[topic].muxch().close();
+                      });
+                      return _context16.abrupt(&#x27;return&#x27;, &#x27;break&#x27;);
+
+                    case 7:
+                      // TODO: Somehow ensure/document that this must return a string
+                      // (otherwise use proper (hash)maps)
+                      topic = topicFn(value);
+                      m = mults[topic];
+
+                      if (!m) {
+                        _context16.next = 14;
+                        break;
+                      }
+
+                      _context16.next = 12;
+                      return (0, _process.put)(m.muxch(), value);
+
+                    case 12:
+                      stillOpen = _context16.sent;
+
+                      if (!stillOpen) {
+                        delete mults[topic];
+                      }
+
+                    case 14:
+                    case &#x27;end&#x27;:
+                      return _context16.stop();
+                  }
+                }
+              }, _loop3, _this3);
+            });
+
+          case 1:
+            return _context17.delegateYield(_loop3(), &#x27;t0&#x27;, 2);
+
+          case 2:
+            _ret3 = _context17.t0;
+
+            if (!(_ret3 === &#x27;break&#x27;)) {
+              _context17.next = 5;
+              break;
+            }
+
+            return _context17.abrupt(&#x27;break&#x27;, 7);
+
+          case 5:
+            _context17.next = 1;
+            break;
+
+          case 7:
+          case &#x27;end&#x27;:
+            return _context17.stop();
+        }
+      }
+    }, _callee14, this);
+  }));
+  return p;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.js-csp.operations.reduce" id="apidoc.element.js-csp.operations.reduce">
+        function <span class="apidocSignatureSpan">js-csp.operations.</span>reduce
+        <span class="apidocSignatureSpan">(f, init, ch)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function reduce(f, init, ch) {
+  return (0, _csp.go)(_regenerator2.default.mark(function _callee4() {
+    var result, value;
+    return _regenerator2.default.wrap(function _callee4$(_context5) {
+      while (1) {
+        switch (_context5.prev = _context5.next) {
+          case 0:
+            result = init;
+
+          case 1:
+            _context5.next = 3;
+            return (0, _process.take)(ch);
+
+          case 3:
+            value = _context5.sent;
+
+            if (!(value === _channels.CLOSED)) {
+              _context5.next = 6;
+              break;
+            }
+
+            return _context5.abrupt(&#x27;return&#x27;, result);
+
+          case 6:
+
+            result = f(result, value);
+
+          case 7:
+            _context5.next = 1;
+            break;
+
+          case 9:
+          case &#x27;end&#x27;:
+            return _context5.stop();
+        }
+      }
+    }, _callee4, this);
+  }), [], true);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.js-csp.operations.removeFrom" id="apidoc.element.js-csp.operations.removeFrom">
+        function <span class="apidocSignatureSpan">js-csp.operations.</span>removeFrom
+        <span class="apidocSignatureSpan">(p, ch)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function removeFrom(p, ch) {
+  return filterFrom(function (value) {
+    return !p(value);
+  }, ch);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.js-csp.operations.removeInto" id="apidoc.element.js-csp.operations.removeInto">
+        function <span class="apidocSignatureSpan">js-csp.operations.</span>removeInto
+        <span class="apidocSignatureSpan">(p, ch)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function removeInto(p, ch) {
+  return filterInto(function (value) {
+    return !p(value);
+  }, ch);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.js-csp.operations.split" id="apidoc.element.js-csp.operations.split">
+        function <span class="apidocSignatureSpan">js-csp.operations.</span>split
+        <span class="apidocSignatureSpan">(p, ch, trueBufferOrN, falseBufferOrN)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function split(p, ch, trueBufferOrN, falseBufferOrN) {
+  var tch = (0, _csp.chan)(trueBufferOrN);
+  var fch = (0, _csp.chan)(falseBufferOrN);
+  (0, _csp.go)(_regenerator2.default.mark(function _callee3() {
+    var value;
+    return _regenerator2.default.wrap(function _callee3$(_context4) {
+      while (1) {
+        switch (_context4.prev = _context4.next) {
+          case 0:
+            _context4.next = 2;
+            return (0, _process.take)(ch);
+
+          case 2:
+            value = _context4.sent;
+
+            if (!(value === _channels.CLOSED)) {
+              _context4.next = 7;
+              break;
+            }
+
+            tch.close();
+            fch.close();
+            return _context4.abrupt(&#x27;break&#x27;, 11);
+
+          case 7:
+            _context4.next = 9;
+            return (0, _process.put)(p(value) ? tch : fch, value);
+
+          case 9:
+            _context4.next = 0;
+            break;
+
+          case 11:
+          case &#x27;end&#x27;:
+            return _context4.stop();
+        }
+      }
+    }, _callee3, this);
+  }));
+  return [tch, fch];
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.js-csp.operations.take" id="apidoc.element.js-csp.operations.take">
+        function <span class="apidocSignatureSpan">js-csp.operations.</span>take
+        <span class="apidocSignatureSpan">(n, ch, bufferOrN)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function take(n, ch, bufferOrN) {
+  var out = (0, _csp.chan)(bufferOrN);
+  (0, _csp.go)(_regenerator2.default.mark(function _callee8() {
+    var i, value;
+    return _regenerator2.default.wrap(function _callee8$(_context9) {
+      while (1) {
+        switch (_context9.prev = _context9.next) {
+          case 0:
+            i = 0;
+
+          case 1:
+            if (!(i &#x3c; n)) {
+              _context9.next = 12;
+              break;
+            }
+
+            _context9.next = 4;
+            return (0, _process.take)(ch);
+
+          case 4:
+            value = _context9.sent;
+
+            if (!(value === _channels.CLOSED)) {
+              _context9.next = 7;
+              break;
+            }
+
+            return _context9.abrupt(&#x27;break&#x27;, 12);
+
+          case 7:
+            _context9.next = 9;
+            return (0, _process.put)(out, value);
+
+          case 9:
+            i += 1;
+            _context9.next = 1;
+            break;
+
+          case 12:
+            out.close();
+
+          case 13:
+          case &#x27;end&#x27;:
+            return _context9.stop();
+        }
+      }
+    }, _callee8, this);
+  }));
+  return out;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+```
+
+Pingpong (ported from [Go](http://talks.golang.org/2013/advconc.slide#6)).
+
+```javascript
+function* player(name, table) {
+  while (true) {
+let ball = yield csp.<span class="apidocCodeKeywordSpan">take</span>(table);
+
+if (ball === csp.CLOSED) {
+  console.log(name + &#x22;: table&#x27;s gone&#x22;);
+  return;
+}
+
+ball.hits += 1;
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.js-csp.operations.unique" id="apidoc.element.js-csp.operations.unique">
+        function <span class="apidocSignatureSpan">js-csp.operations.</span>unique
+        <span class="apidocSignatureSpan">(ch, bufferOrN)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function unique(ch, bufferOrN) {
+  var out = (0, _csp.chan)(bufferOrN);
+  var last = NOTHING;
+  (0, _csp.go)(_regenerator2.default.mark(function _callee9() {
+    var value;
+    return _regenerator2.default.wrap(function _callee9$(_context10) {
+      while (1) {
+        switch (_context10.prev = _context10.next) {
+          case 0:
+            _context10.next = 2;
+            return (0, _process.take)(ch);
+
+          case 2:
+            value = _context10.sent;
+
+            if (!(value === _channels.CLOSED)) {
+              _context10.next = 5;
+              break;
+            }
+
+            return _context10.abrupt(&#x27;break&#x27;, 11);
+
+          case 5:
+            if (!(value !== last)) {
+              _context10.next = 9;
+              break;
+            }
+
+            last = value;
+            _context10.next = 9;
+            return (0, _process.put)(out, value);
+
+          case 9:
+            _context10.next = 0;
+            break;
+
+          case 11:
+            out.close();
+
+          case 12:
+          case &#x27;end&#x27;:
+            return _context10.stop();
+        }
+      }
+    }, _callee9, this);
+  }));
+  return out;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.js-csp.operations.mix" id="apidoc.module.js-csp.operations.mix">module js-csp.operations.mix</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.js-csp.operations.mix.mix" id="apidoc.element.js-csp.operations.mix.mix">
+        function <span class="apidocSignatureSpan">js-csp.operations.</span>mix
+        <span class="apidocSignatureSpan">(out)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function mix(out) {
+  var m = new Mix(out);
+  (0, _csp.go)(_regenerator2.default.mark(function _callee13() {
+    var state, result, _value, channel, solos, stillOpen;
+
+    return _regenerator2.default.wrap(function _callee13$(_context15) {
+      while (1) {
+        switch (_context15.prev = _context15.next) {
+          case 0:
+            state = m._getAllState();
+
+          case 1:
+            _context15.next = 3;
+            return (0, _process.alts)(state.reads);
+
+          case 3:
+            result = _context15.sent;
+            _value = result.value;
+            channel = result.channel;
+
+            if (!(_value === _channels.CLOSED)) {
+              _context15.next = 11;
+              break;
+            }
+
+            delete m.stateMap[chanId(channel)];
+            state = m._getAllState();
+            _context15.next = 22;
+            break;
+
+          case 11:
+            if (!(channel === m.change)) {
+              _context15.next = 15;
+              break;
+            }
+
+            state = m._getAllState();
+            _context15.next = 22;
+            break;
+
+          case 15:
+            solos = state.solos;
+
+            if (!(solos.indexOf(channel) &#x3e; -1 || solos.length === 0 &#x26;&#x26; !(state.mutes.indexOf(channel) &#x3e; -1))) {
+              _context15.next = 22;
+              break;
+            }
+
+            _context15.next = 19;
+            return (0, _process.put)(out, _value);
+
+          case 19:
+            stillOpen = _context15.sent;
+
+            if (stillOpen) {
+              _context15.next = 22;
+              break;
+            }
+
+            return _context15.abrupt(&#x27;break&#x27;, 24);
+
+          case 22:
+            _context15.next = 1;
+            break;
+
+          case 24:
+          case &#x27;end&#x27;:
+            return _context15.stop();
+        }
+      }
+    }, _callee13, this);
+  }));
+  return m;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.js-csp.operations.mix.add" id="apidoc.element.js-csp.operations.mix.add">
+        function <span class="apidocSignatureSpan">js-csp.operations.mix.</span>add
+        <span class="apidocSignatureSpan">(m, ch)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function admix(m, ch) {
+  m.admix(ch);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.js-csp.operations.mix.remove" id="apidoc.element.js-csp.operations.mix.remove">
+        function <span class="apidocSignatureSpan">js-csp.operations.mix.</span>remove
+        <span class="apidocSignatureSpan">(m, ch)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function unmix(m, ch) {
+  m.unmix(ch);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.js-csp.operations.mix.removeAll" id="apidoc.element.js-csp.operations.mix.removeAll">
+        function <span class="apidocSignatureSpan">js-csp.operations.mix.</span>removeAll
+        <span class="apidocSignatureSpan">(m)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function unmixAll(m) {
+  m.unmixAll();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.js-csp.operations.mix.setSoloMode" id="apidoc.element.js-csp.operations.mix.setSoloMode">
+        function <span class="apidocSignatureSpan">js-csp.operations.mix.</span>setSoloMode
+        <span class="apidocSignatureSpan">(m, mode)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function setSoloMode(m, mode) {
+  m.setSoloMode(mode);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+};
+
+mix.toggle = function toggle(m, updateStateList) {
+  m.toggle(updateStateList);
+};
+
+mix.setSoloMode = function setSoloMode(m, mode) {
+  m.<span class="apidocCodeKeywordSpan">setSoloMode</span>(mode);
+};
+
+function constantlyNull() {
+  return null;
+}
+
+var Pub = function () {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.js-csp.operations.mix.toggle" id="apidoc.element.js-csp.operations.mix.toggle">
+        function <span class="apidocSignatureSpan">js-csp.operations.mix.</span>toggle
+        <span class="apidocSignatureSpan">(m, updateStateList)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function toggle(m, updateStateList) {
+  m.toggle(updateStateList);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+};
+
+mix.removeAll = function unmixAll(m) {
+  m.unmixAll();
+};
+
+mix.toggle = function toggle(m, updateStateList) {
+  m.<span class="apidocCodeKeywordSpan">toggle</span>(updateStateList);
+};
+
+mix.setSoloMode = function setSoloMode(m, mode) {
+  m.setSoloMode(mode);
+};
+
+function constantlyNull() {
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.js-csp.operations.mult" id="apidoc.module.js-csp.operations.mult">module js-csp.operations.mult</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.js-csp.operations.mult.mult" id="apidoc.element.js-csp.operations.mult.mult">
+        function <span class="apidocSignatureSpan">js-csp.operations.</span>mult
+        <span class="apidocSignatureSpan">(ch)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function mult(ch) {
+  var m = new Mult(ch);
+  var dchan = (0, _csp.chan)(1);
+  var dcount = void 0;
+
+  function makeDoneCallback(tap) {
+    return function (stillOpen) {
+      dcount -= 1;
+      if (dcount === 0) {
+        (0, _process.putThenCallback)(dchan, true);
+      }
+      if (!stillOpen) {
+        m.untap(tap.channel);
+      }
+    };
+  }
+
+  (0, _csp.go)(_regenerator2.default.mark(function _callee12() {
+    var _this = this;
+
+    var _loop, _ret;
+
+    return _regenerator2.default.wrap(function _callee12$(_context14) {
+      while (1) {
+        switch (_context14.prev = _context14.next) {
+          case 0:
+            _loop = _regenerator2.default.mark(function _loop() {
+              var value, taps, t, initDcount;
+              return _regenerator2.default.wrap(function _loop$(_context13) {
+                while (1) {
+                  switch (_context13.prev = _context13.next) {
+                    case 0:
+                      _context13.next = 2;
+                      return (0, _process.take)(ch);
+
+                    case 2:
+                      value = _context13.sent;
+                      taps = m.taps;
+                      t = void 0;
+
+                      if (!(value === _channels.CLOSED)) {
+                        _context13.next = 9;
+                        break;
+                      }
+
+                      (0, _keys2.default)(taps).forEach(function (id) {
+                        t = taps[id];
+                        if (!t.keepOpen) {
+                          t.channel.close();
+                        }
+                      });
+
+                      // TODO: Is this necessary?
+                      m.untapAll();
+                      return _context13.abrupt(&#x27;return&#x27;, &#x27;break&#x27;);
+
+                    case 9:
+                      dcount = (0, _keys2.default)(taps).length;
+                      // XXX: This is because putAsync can actually call back
+                      // immediately. Fix that
+                      initDcount = dcount;
+                      // Put value on tapping channels...
+
+                      (0, _keys2.default)(taps).forEach(function (id) {
+                        t = taps[id];
+                        (0, _process.putThenCallback)(t.channel, value, makeDoneCallback(t));
+                      });
+                      // ... waiting for all puts to complete
+
+                      if (!(initDcount &#x3e; 0)) {
+                        _context13.next = 15;
+                        break;
+                      }
+
+                      _context13.next = 15;
+                      return (0, _process.take)(dchan);
+
+                    case 15:
+                    case &#x27;end&#x27;:
+                      return _context13.stop();
+                  }
+                }
+              }, _loop, _this);
+            });
+
+          case 1:
+            return _context14.delegateYield(_loop(), &#x27;t0&#x27;, 2);
+
+          case 2:
+            _ret = _context14.t0;
+
+            if (!(_ret === &#x27;break&#x27;)) {
+              _context14.next = 5;
+              break;
+            }
+
+            return _context14.abrupt(&#x27;break&#x27;, 7);
+
+          case 5:
+            _context14.next = 1;
+            break;
+
+          case 7:
+          case &#x27;end&#x27;:
+            return _context14.stop();
+        }
+      }
+    }, _callee12, this);
+  }));
+  return m;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.js-csp.operations.mult.tap" id="apidoc.element.js-csp.operations.mult.tap">
+        function <span class="apidocSignatureSpan">js-csp.operations.mult.</span>tap
+        <span class="apidocSignatureSpan">(m, ch, keepOpen)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">tap = function (m, ch, keepOpen) {
+  m.tap(ch, keepOpen);
+  return ch;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+      }
+    }, _callee12, this);
+  }));
+  return m;
+}
+
+mult.tap = function (m, ch, keepOpen) {
+  m.<span class="apidocCodeKeywordSpan">tap</span>(ch, keepOpen);
+  return ch;
+};
+
+mult.untap = function (m, ch) {
+  m.untap(ch);
+};
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.js-csp.operations.mult.untap" id="apidoc.element.js-csp.operations.mult.untap">
+        function <span class="apidocSignatureSpan">js-csp.operations.mult.</span>untap
+        <span class="apidocSignatureSpan">(m, ch)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">untap = function (m, ch) {
+  m.untap(ch);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+function makeDoneCallback(tap) {
+  return function (stillOpen) {
+    dcount -= 1;
+    if (dcount === 0) {
+      (0, _process.putThenCallback)(dchan, true);
+    }
+    if (!stillOpen) {
+      m.<span class="apidocCodeKeywordSpan">untap</span>(tap.channel);
+    }
+  };
+}
+
+(0, _csp.go)(_regenerator2.default.mark(function _callee12() {
+  var _this = this;
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.js-csp.operations.mult.untapAll" id="apidoc.element.js-csp.operations.mult.untapAll">
+        function <span class="apidocSignatureSpan">js-csp.operations.mult.</span>untapAll
+        <span class="apidocSignatureSpan">(m)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">untapAll = function (m) {
+  m.untapAll();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    t = taps[id];
+    if (!t.keepOpen) {
+      t.channel.close();
+    }
+  });
+
+  // TODO: Is this necessary?
+  m.<span class="apidocCodeKeywordSpan">untapAll</span>();
+  return _context13.abrupt(&#x27;return&#x27;, &#x27;break&#x27;);
+
+case 9:
+  dcount = (0, _keys2.default)(taps).length;
+  // XXX: This is because putAsync can actually call back
+  // immediately. Fix that
+  initDcount = dcount;
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.js-csp.operations.pub" id="apidoc.module.js-csp.operations.pub">module js-csp.operations.pub</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.js-csp.operations.pub.pub" id="apidoc.element.js-csp.operations.pub.pub">
+        function <span class="apidocSignatureSpan">js-csp.operations.</span>pub
+        <span class="apidocSignatureSpan">(ch, topicFn)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function pub(ch, topicFn) {
+  var bufferFn = arguments.length &#x3e; 2 &#x26;&#x26; arguments[2] !== undefined ? arguments[2] : constantlyNull;
+
+  var p = new Pub(ch, topicFn, bufferFn);
+  (0, _csp.go)(_regenerator2.default.mark(function _callee14() {
+    var _this3 = this;
+
+    var _loop3, _ret3;
+
+    return _regenerator2.default.wrap(function _callee14$(_context17) {
+      while (1) {
+        switch (_context17.prev = _context17.next) {
+          case 0:
+            _loop3 = _regenerator2.default.mark(function _loop3() {
+              var value, mults, topic, m, stillOpen;
+              return _regenerator2.default.wrap(function _loop3$(_context16) {
+                while (1) {
+                  switch (_context16.prev = _context16.next) {
+                    case 0:
+                      _context16.next = 2;
+                      return (0, _process.take)(ch);
+
+                    case 2:
+                      value = _context16.sent;
+                      mults = p.mults;
+
+                      if (!(value === _channels.CLOSED)) {
+                        _context16.next = 7;
+                        break;
+                      }
+
+                      (0, _keys2.default)(mults).forEach(function (topic) {
+                        mults[topic].muxch().close();
+                      });
+                      return _context16.abrupt(&#x27;return&#x27;, &#x27;break&#x27;);
+
+                    case 7:
+                      // TODO: Somehow ensure/document that this must return a string
+                      // (otherwise use proper (hash)maps)
+                      topic = topicFn(value);
+                      m = mults[topic];
+
+                      if (!m) {
+                        _context16.next = 14;
+                        break;
+                      }
+
+                      _context16.next = 12;
+                      return (0, _process.put)(m.muxch(), value);
+
+                    case 12:
+                      stillOpen = _context16.sent;
+
+                      if (!stillOpen) {
+                        delete mults[topic];
+                      }
+
+                    case 14:
+                    case &#x27;end&#x27;:
+                      return _context16.stop();
+                  }
+                }
+              }, _loop3, _this3);
+            });
+
+          case 1:
+            return _context17.delegateYield(_loop3(), &#x27;t0&#x27;, 2);
+
+          case 2:
+            _ret3 = _context17.t0;
+
+            if (!(_ret3 === &#x27;break&#x27;)) {
+              _context17.next = 5;
+              break;
+            }
+
+            return _context17.abrupt(&#x27;break&#x27;, 7);
+
+          case 5:
+            _context17.next = 1;
+            break;
+
+          case 7:
+          case &#x27;end&#x27;:
+            return _context17.stop();
+        }
+      }
+    }, _callee14, this);
+  }));
+  return p;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.js-csp.operations.pub.sub" id="apidoc.element.js-csp.operations.pub.sub">
+        function <span class="apidocSignatureSpan">js-csp.operations.pub.</span>sub
+        <span class="apidocSignatureSpan">(p, topic, ch, keepOpen)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">sub = function (p, topic, ch, keepOpen) {
+  return p.sub(topic, ch, keepOpen);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+      }
+    }, _callee14, this);
+  }));
+  return p;
+}
+
+pub.sub = function (p, topic, ch, keepOpen) {
+  return p.<span class="apidocCodeKeywordSpan">sub</span>(topic, ch, keepOpen);
+};
+
+pub.unsub = function (p, topic, ch) {
+  p.unsub(topic, ch);
+};
+
+pub.unsubAll = function (p, topic) {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.js-csp.operations.pub.unsub" id="apidoc.element.js-csp.operations.pub.unsub">
+        function <span class="apidocSignatureSpan">js-csp.operations.pub.</span>unsub
+        <span class="apidocSignatureSpan">(p, topic, ch)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">unsub = function (p, topic, ch) {
+  p.unsub(topic, ch);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+}
+
+pub.sub = function (p, topic, ch, keepOpen) {
+  return p.sub(topic, ch, keepOpen);
+};
+
+pub.unsub = function (p, topic, ch) {
+  p.<span class="apidocCodeKeywordSpan">unsub</span>(topic, ch);
+};
+
+pub.unsubAll = function (p, topic) {
+  p.unsubAll(topic);
+};
+
+function pipelineInternal(n, to, from, close, taskFn) {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.js-csp.operations.pub.unsubAll" id="apidoc.element.js-csp.operations.pub.unsubAll">
+        function <span class="apidocSignatureSpan">js-csp.operations.pub.</span>unsubAll
+        <span class="apidocSignatureSpan">(p, topic)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">unsubAll = function (p, topic) {
+  p.unsubAll(topic);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+};
+
+pub.unsub = function (p, topic, ch) {
+p.unsub(topic, ch);
+};
+
+pub.unsubAll = function (p, topic) {
+p.<span class="apidocCodeKeywordSpan">unsubAll</span>(topic);
+};
+
+function pipelineInternal(n, to, from, close, taskFn) {
+if (n &#x3c;= 0) {
+  throw new Error(&#x27;n must be positive&#x27;);
+}
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
