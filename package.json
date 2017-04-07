@@ -1,17 +1,40 @@
 {
-    "buildNpmdoc":"js-csp",
+    "author": "kai zhu <kaizhu256@gmail.com>",
+    "buildNpmdoc": "js-csp",
+    "description": "api documentation for [js-csp (v0.9.2)](https://github.com/ubolonton/js-csp#readme) [![npm package](https://img.shields.io/npm/v/npmdoc-js-csp.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-js-csp) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-js-csp.svg)](https://travis-ci.org/npmdoc/node-npmdoc-js-csp)",
     "devDependencies": {
-        "js-csp": "*",
         "electron-lite": "kaizhu256/node-electron-lite#alpha",
+        "js-csp": "*",
         "utility2": "kaizhu256/node-utility2#alpha"
     },
-    "name":"npmdoc-js-csp",
+    "engines": {
+        "node": ">=4.0"
+    },
+    "homepage": "https://github.com/npmdoc/node-npmdoc-js-csp",
+    "keywords": [
+        "documentation",
+        "js-csp"
+    ],
+    "license": "MIT",
+    "main": "lib.npmdoc_js_csp.js",
+    "name": "npmdoc-js-csp",
+    "nameAlias": "npmdoc_js_csp",
+    "nameOriginal": "npmdoc-js-csp",
+    "os": [
+        "darwin",
+        "linux"
+    ],
     "repository": {
         "type": "git",
         "url": "https://github.com/npmdoc/node-npmdoc-js-csp"
     },
     "scripts": {
-        "build-ci": "utility2 shReadmeTest build_ci.sh"
+        "build-ci": "utility2 shReadmeTest build_ci.sh",
+        "env": "env",
+        "heroku-postbuild": "(set -e; npm install \"kaizhu256/node-utility2#alpha\"; utility2 shDeployHeroku)",
+        "postinstall": "if [ -f npm_scripts.sh ]; then ./npm_scripts.sh postinstall; fi",
+        "start": "(set -e; export PORT=${PORT:-8080}; utility2 start test.js)",
+        "test": "(set -e; export PORT=$(utility2 shServerPortRandom); utility2 test test.js)"
     },
     "version": "0.0.1"
 }
